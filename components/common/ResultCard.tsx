@@ -1,5 +1,6 @@
-import type { ReactNode } from "react";
+"use client";
 
+import { useEffect, useMemo, useState, type ReactNode } from "react";
 import { Card } from "@/components/ui/card";
 
 type ResultCardProps = {
@@ -41,18 +42,88 @@ const toneClasses = {
   },
 };
 
+function formatNumber(value: number, decimals: number) {
+  return value.toLocaleString("en-US", {
+    minimumFractionDigits: decimals,
+    maximumFractionDigits: decimals,
+  });
+}
+
+function AnimatedResultNumber({
+  value,
+  decimals = 0,
+}: {
+  value: number;
+  decimals?: number;
+}) {
+  const safeValue = Number.isFinite(value) ? value : 0;
+  const [displayValue, setDisplayValue] = useState(safeValue);
+
+  useEffect(() => {
+    const startValue = displayValue;
+    const endValue = Number.isFinite(value) ? value : 0;
+
+    if (startValue === endValue) {
+      setDisplayValue(endValue);
+      return;
+    }
+
+    let animationFrameId = 0;
+    const startTime = performance.now();
+    const duration = 650;
+
+    function easeOutCubic(progress: number) {
+      return 1 - Math.pow(1 - progress, 3);
+    }
+
+    function update(currentTime: number) {
+      const elapsed = currentTime - startTime;
+      const progress = Math.min(elapsed / duration, 1);
+      const easedProgress = easeOutCubic(progress);
+
+      const nextValue = startValue + (endValue - startValue) * easedProgress;
+
+      setDisplayValue(nextValue);
+
+      if (progress < 1) {
+        animationFrameId = requestAnimationFrame(update);
+      } else {
+        setDisplayValue(endValue);
+      }
+    }
+
+    animationFrameId = requestAnimationFrame(update);
+
+    return () => {
+      cancelAnimationFrame(animationFrameId);
+    };
+    // displayValue intentionally stays out so the animation starts from
+    // the last rendered number instead of restarting from zero.
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [value]);
+
+  const formattedValue = useMemo(
+    () => formatNumber(displayValue, decimals),
+    [displayValue, decimals]
+  );
+
+  return <span>{formattedValue}</span>;
+}
+
 export function ResultCard({
   label,
   value,
   numericValue,
-  decimals,
-  suffix,
+  decimals = 0,
+  suffix = "",
   description,
   tone = "emerald",
   className = "",
   children,
 }: ResultCardProps) {
   const selectedTone = toneClasses[tone] ?? toneClasses.emerald;
+  const hasAnimatedNumber =
+    typeof numericValue === "number" && Number.isFinite(numericValue);
 
   return (
     <Card
@@ -75,18 +146,21 @@ export function ResultCard({
           </p>
 
           <p
-            className="mt-2 text-3xl font-bold tracking-tight"
+            className="mt-2 text-3xl font-bold tracking-tight tabular-nums"
             style={{
               color: "var(--fl-text)",
             }}
           >
-            {numericValue !== undefined
-              ? numericValue.toFixed(decimals)
-              : value}
-            {suffix && (
-              <span className="text-lg font-normal text-slate-500">
-                {suffix}
-              </span>
+            {hasAnimatedNumber ? (
+              <>
+                <AnimatedResultNumber
+                  value={numericValue}
+                  decimals={decimals}
+                />
+                {suffix ? <span>{suffix}</span> : null}
+              </>
+            ) : (
+              value
             )}
           </p>
         </div>
