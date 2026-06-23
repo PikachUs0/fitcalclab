@@ -83,7 +83,9 @@ export default function HomePage() {
             </div>
           </MotionSection>
 
-          <DashboardPreview />
+          <div className="hidden md:block">
+  <DashboardPreview />
+</div>
         </div>
       </section>
 

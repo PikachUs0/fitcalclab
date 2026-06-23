@@ -1,7 +1,6 @@
 ﻿"use client";
 
 import Link from "next/link";
-import { motion } from "motion/react";
 import {
   Activity,
   Apple,
@@ -89,16 +88,7 @@ export function CalculatorCard({
   const Icon = iconMap[icon];
 
   return (
-    <motion.div
-      layout
-      initial={{ opacity: 0, y: 16, scale: 0.98 }}
-      animate={{ opacity: 1, y: 0, scale: 1 }}
-      exit={{ opacity: 0, y: 12, scale: 0.98 }}
-      whileHover={{ y: -6, scale: 1.012 }}
-      whileTap={{ scale: 0.99 }}
-      transition={{ type: "spring", stiffness: 320, damping: 28 }}
-      className="h-full"
-    >
+    <div className="h-full">
       <Link
         href={href}
         onClick={() => saveRecentlyViewedCalculator(href)}
@@ -160,6 +150,6 @@ export function CalculatorCard({
           </div>
         </Card>
       </Link>
-    </motion.div>
+    </div>
   );
 }
