@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useMemo, useState, type ReactNode } from "react";
+import { useEffect, useRef, useState, type ReactNode } from "react";
 import { Card } from "@/components/ui/card";
 
 type ResultCardProps = {
@@ -57,57 +57,64 @@ function AnimatedResultNumber({
   decimals?: number;
 }) {
   const safeValue = Number.isFinite(value) ? value : 0;
-  const [displayValue, setDisplayValue] = useState(safeValue);
+
+  const [displayValue, setDisplayValue] = useState(0);
+  const previousValueRef = useRef(0);
+  const hasAnimatedOnceRef = useRef(false);
 
   useEffect(() => {
-    const startValue = displayValue;
-    const endValue = Number.isFinite(value) ? value : 0;
+    const isFirstAnimation = !hasAnimatedOnceRef.current;
 
-    if (startValue === endValue) {
-      setDisplayValue(endValue);
-      return;
-    }
+    const startValue = isFirstAnimation ? 0 : previousValueRef.current;
+    const endValue = safeValue;
 
     let animationFrameId = 0;
-    const startTime = performance.now();
-    const duration = 650;
+    let timeoutId = 0;
+
+    const duration = isFirstAnimation ? 1100 : 850;
+    const delay = isFirstAnimation ? 220 : 0;
 
     function easeOutCubic(progress: number) {
       return 1 - Math.pow(1 - progress, 3);
     }
 
-    function update(currentTime: number) {
-      const elapsed = currentTime - startTime;
-      const progress = Math.min(elapsed / duration, 1);
-      const easedProgress = easeOutCubic(progress);
+    function startAnimation() {
+      const startTime = performance.now();
 
-      const nextValue = startValue + (endValue - startValue) * easedProgress;
+      function update(currentTime: number) {
+        const elapsed = currentTime - startTime;
+        const progress = Math.min(elapsed / duration, 1);
+        const easedProgress = easeOutCubic(progress);
 
-      setDisplayValue(nextValue);
+        const nextValue = startValue + (endValue - startValue) * easedProgress;
 
-      if (progress < 1) {
-        animationFrameId = requestAnimationFrame(update);
-      } else {
-        setDisplayValue(endValue);
+        setDisplayValue(nextValue);
+
+        if (progress < 1) {
+          animationFrameId = requestAnimationFrame(update);
+        } else {
+          setDisplayValue(endValue);
+          previousValueRef.current = endValue;
+          hasAnimatedOnceRef.current = true;
+        }
       }
+
+      animationFrameId = requestAnimationFrame(update);
     }
 
-    animationFrameId = requestAnimationFrame(update);
+    setDisplayValue(startValue);
+
+    timeoutId = window.setTimeout(() => {
+      startAnimation();
+    }, delay);
 
     return () => {
+      window.clearTimeout(timeoutId);
       cancelAnimationFrame(animationFrameId);
     };
-    // displayValue intentionally stays out so the animation starts from
-    // the last rendered number instead of restarting from zero.
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [value]);
+  }, [safeValue]);
 
-  const formattedValue = useMemo(
-    () => formatNumber(displayValue, decimals),
-    [displayValue, decimals]
-  );
-
-  return <span>{formattedValue}</span>;
+  return <span>{formatNumber(displayValue, decimals)}</span>;
 }
 
 export function ResultCard({
@@ -122,7 +129,8 @@ export function ResultCard({
   children,
 }: ResultCardProps) {
   const selectedTone = toneClasses[tone] ?? toneClasses.emerald;
-  const hasAnimatedNumber =
+
+  const shouldAnimate =
     typeof numericValue === "number" && Number.isFinite(numericValue);
 
   return (
@@ -134,44 +142,39 @@ export function ResultCard({
         color: "var(--fl-text)",
       }}
     >
-      <div className="flex items-start justify-between gap-4">
-        <div>
-          <p
-            className="text-sm font-medium"
-            style={{
-              color: "var(--fl-text-secondary)",
-            }}
-          >
-            {label}
-          </p>
+      <div className="relative">
+  <p
+    className="pr-24 text-sm font-medium"
+    style={{
+      color: "var(--fl-text-secondary)",
+    }}
+  >
+    {label}
+  </p>
 
-          <p
-            className="mt-2 text-3xl font-bold tracking-tight tabular-nums"
-            style={{
-              color: "var(--fl-text)",
-            }}
-          >
-            {hasAnimatedNumber ? (
-              <>
-                <AnimatedResultNumber
-                  value={numericValue}
-                  decimals={decimals}
-                />
-                {suffix ? <span>{suffix}</span> : null}
-              </>
-            ) : (
-              value
-            )}
-          </p>
-        </div>
+  <p
+    className="mt-2 text-3xl font-bold tracking-tight tabular-nums"
+    style={{
+      color: "var(--fl-text)",
+    }}
+  >
+    {shouldAnimate ? (
+      <>
+        <AnimatedResultNumber value={numericValue} decimals={decimals} />
+        {suffix ? <span>{suffix}</span> : null}
+      </>
+    ) : (
+      value
+    )}
+  </p>
 
-        <div
-          className={`inline-flex items-center gap-2 rounded-full px-3 py-1 text-xs font-medium ${selectedTone.badge}`}
-        >
-          <span className={`h-2 w-2 rounded-full ${selectedTone.dot}`} />
-          Result
-        </div>
-      </div>
+  <div
+    className={`absolute right-0 top-0 inline-flex shrink-0 items-center gap-1.5 whitespace-nowrap rounded-full px-2.5 py-1 text-xs font-medium ${selectedTone.badge}`}
+  >
+    <span className={`h-2 w-2 rounded-full ${selectedTone.dot}`} />
+    Result
+  </div>
+</div>
 
       {description ? (
         <p

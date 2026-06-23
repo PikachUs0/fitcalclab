@@ -113,18 +113,7 @@ export default function MacroCalculatorPage() {
   />
 </div>
 
-        <div className="mt-10">
-  <CalculatorInfoBox
-    title="How to understand your macro result"
-    howToUse={[
-      "Choose metric or imperial units.",
-      "Select the formula option.",
-      "Enter your age, height and weight.",
-      "Click the calculate button to estimate your macros.",
-    ]}
-    resultMeaning="Macros are the nutrients that provide energy: protein, carbohydrates and fat. This calculator splits your daily calories into estimated macro targets."
-  />
-</div>
+      
         <section className="mt-10 rounded-3xl bg-white p-6 shadow-sm md:p-8">
           <h2 className="text-2xl font-semibold tracking-tight text-slate-950">
             What are macros?
