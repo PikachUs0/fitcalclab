@@ -1,66 +1,116 @@
-"use client";
+import type { ReactNode } from "react";
 
-import { motion } from "motion/react";
-
-import { CountUpNumber } from "@/components/common/CountUpNumber";
 import { Card } from "@/components/ui/card";
 
 type ResultCardProps = {
   label: string;
   value: string;
-  description?: string;
-  tone?: "emerald" | "orange" | "slate";
-
   numericValue?: number;
-  prefix?: string;
-  suffix?: string;
   decimals?: number;
+  suffix?: string;
+  description?: string;
+  tone?: "emerald" | "orange" | "slate" | "red" | "blue" | "teal";
+  className?: string;
+  children?: ReactNode;
 };
 
 const toneClasses = {
-  emerald: "bg-emerald-50 text-emerald-700 border-emerald-100",
-  orange: "bg-orange-50 text-orange-700 border-orange-100",
-  slate: "bg-slate-50 text-slate-700 border-slate-100",
+  emerald: {
+    badge: "bg-emerald-100 text-emerald-700",
+    dot: "bg-emerald-500",
+  },
+  orange: {
+    badge: "bg-orange-100 text-orange-700",
+    dot: "bg-orange-500",
+  },
+  slate: {
+    badge: "bg-slate-100 text-slate-700",
+    dot: "bg-slate-500",
+  },
+  red: {
+    badge: "bg-red-100 text-red-700",
+    dot: "bg-red-500",
+  },
+  blue: {
+    badge: "bg-sky-100 text-sky-700",
+    dot: "bg-sky-500",
+  },
+  teal: {
+    badge: "bg-teal-100 text-teal-700",
+    dot: "bg-teal-500",
+  },
 };
 
 export function ResultCard({
   label,
   value,
+  numericValue,
+  decimals,
+  suffix,
   description,
   tone = "emerald",
-  numericValue,
-  prefix = "",
-  suffix = "",
-  decimals = 0,
+  className = "",
+  children,
 }: ResultCardProps) {
-  const shouldAnimateNumber = typeof numericValue === "number";
+  const selectedTone = toneClasses[tone] ?? toneClasses.emerald;
 
   return (
-    <motion.div
-      initial={{ opacity: 0, y: 18 }}
-      animate={{ opacity: 1, y: 0 }}
-      transition={{ duration: 0.35, ease: "easeOut" }}
+    <Card
+      className={`border p-5 shadow-sm ${className}`}
+      style={{
+        backgroundColor: "var(--fl-card)",
+        borderColor: "var(--fl-border)",
+        color: "var(--fl-text)",
+      }}
     >
-      <Card className={`border p-5 ${toneClasses[tone]}`}>
-        <p className="text-sm font-medium opacity-80">{label}</p>
+      <div className="flex items-start justify-between gap-4">
+        <div>
+          <p
+            className="text-sm font-medium"
+            style={{
+              color: "var(--fl-text-secondary)",
+            }}
+          >
+            {label}
+          </p>
 
-        <p className="mt-2 text-3xl font-bold tracking-tight">
-          {shouldAnimateNumber ? (
-            <CountUpNumber
-              value={numericValue}
-              prefix={prefix}
-              suffix={suffix}
-              decimals={decimals}
-            />
-          ) : (
-            value
-          )}
+          <p
+            className="mt-2 text-3xl font-bold tracking-tight"
+            style={{
+              color: "var(--fl-text)",
+            }}
+          >
+            {numericValue !== undefined
+              ? numericValue.toFixed(decimals)
+              : value}
+            {suffix && (
+              <span className="text-lg font-normal text-slate-500">
+                {suffix}
+              </span>
+            )}
+          </p>
+        </div>
+
+        <div
+          className={`inline-flex items-center gap-2 rounded-full px-3 py-1 text-xs font-medium ${selectedTone.badge}`}
+        >
+          <span className={`h-2 w-2 rounded-full ${selectedTone.dot}`} />
+          Result
+        </div>
+      </div>
+
+      {description ? (
+        <p
+          className="mt-3 text-sm leading-6"
+          style={{
+            color: "var(--fl-text-muted)",
+          }}
+        >
+          {description}
         </p>
+      ) : null}
 
-        {description ? (
-          <p className="mt-2 text-sm leading-6 opacity-80">{description}</p>
-        ) : null}
-      </Card>
-    </motion.div>
+      {children ? <div className="mt-4">{children}</div> : null}
+    </Card>
   );
 }
