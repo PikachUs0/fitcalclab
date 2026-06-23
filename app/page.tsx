@@ -15,21 +15,20 @@ export default function HomePage() {
   );
 
   return (
-    <main className="bg-slate-50">
-      <section className="relative overflow-hidden bg-slate-50">
-       <div className="absolute inset-0 bg-gradient-to-b from-emerald-50 to-slate-50" />
+    <main className="bg-slate-50 text-slate-950 dark:bg-slate-950 dark:text-slate-50">
+  <section className="relative overflow-hidden bg-gradient-to-b from-emerald-50 via-white to-slate-50 dark:from-slate-950 dark:via-slate-950 dark:to-slate-900">
 
         <div className="relative mx-auto grid max-w-6xl gap-10 px-4 py-16 md:grid-cols-[1.08fr_0.92fr] md:items-center md:py-24">
           <MotionSection>
-            <div className="inline-flex rounded-full border border-emerald-200 bg-white px-3 py-1 text-sm font-medium text-emerald-700 shadow-sm">
+            <div className="inline-flex rounded-full border border-emerald-200 bg-white px-3 py-1 text-sm font-medium text-emerald-700 shadow-sm dark:border-emerald-900 dark:bg-slate-900 dark:text-emerald-300">
               Fitness calculators, made simple
             </div>
 
-            <h1 className="mt-6 max-w-3xl text-4xl font-bold tracking-tight text-slate-950 md:text-6xl">
+            <h1 className="mt-6 max-w-3xl text-4xl font-bold tracking-tight text-slate-950 md:text-6xl dark:text-white">
               Fitness calculators for calories, macros and body metrics.
             </h1>
 
-            <p className="mt-6 max-w-2xl text-lg leading-8 text-slate-600">
+            <p className="mt-6 max-w-2xl text-lg leading-8 text-slate-600 dark:text-slate-300">
               Calculate BMI, BMR, TDEE, macros, protein, water intake and body
               metrics with clean, fast and privacy-friendly tools.
             </p>
@@ -51,7 +50,7 @@ export default function HomePage() {
               </Button>
             </div>
 
-            <div className="mt-8 grid gap-3 text-sm text-slate-600 sm:grid-cols-3">
+            <div className="mt-8 grid gap-3 text-sm text-slate-600 sm:grid-cols-3 dark:text-slate-300">
               {["No signup", "Metric & imperial", "Clear explanations"].map(
                 (item) => (
                   <div key={item} className="flex items-center gap-2">
@@ -63,23 +62,23 @@ export default function HomePage() {
             </div>
 
             <div className="mt-8 grid gap-3 sm:grid-cols-3">
-              <Card className="border-slate-200 bg-white p-4 shadow-sm">
+              <Card className="border-slate-200 bg-white p-4 shadow-sm dark:border-slate-800 dark:bg-slate-900">
                 <p className="text-2xl font-bold text-slate-950">
                   {liveCalculators.length}
                 </p>
-                <p className="mt-1 text-sm text-slate-600">
+                <p className="mt-1 text-sm text-slate-600 dark:text-slate-300">
                   Live calculators
                 </p>
               </Card>
 
-              <Card className="border-slate-200 bg-white p-4 shadow-sm">
+              <Card className="border-slate-200 bg-white p-4 shadow-sm dark:border-slate-800 dark:bg-slate-900">
                 <p className="text-2xl font-bold text-slate-950">100%</p>
-                <p className="mt-1 text-sm text-slate-600">Browser-based</p>
+                <p className="mt-1 text-sm text-slate-600 dark:text-slate-300">Browser-based</p>
               </Card>
 
-              <Card className="border-slate-200 bg-white p-4 shadow-sm">
+              <Card className="border-slate-200 bg-white p-4 shadow-sm dark:border-slate-800 dark:bg-slate-900">
                 <p className="text-2xl font-bold text-slate-950">0</p>
-                <p className="mt-1 text-sm text-slate-600">Signup needed</p>
+                <p className="mt-1 text-sm text-slate-600 dark:text-slate-300">Signup needed</p>
               </Card>
             </div>
           </MotionSection>
@@ -97,11 +96,11 @@ export default function HomePage() {
               Popular calculators
             </p>
 
-            <h2 className="mt-2 text-3xl font-bold tracking-tight text-slate-950">
+            <h2 className="mt-2 text-3xl font-bold tracking-tight text-slate-950 dark:text-white">
               Start with your core fitness numbers
             </h2>
 
-            <p className="mt-3 max-w-2xl text-slate-600">
+            <p className="mt-3 max-w-2xl text-slate-600 dark:text-slate-300">
               Move from body metrics to calories, macros and training estimates
               with connected calculator pages.
             </p>
