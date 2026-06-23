@@ -17,7 +17,7 @@ export default function HomePage() {
   return (
     <main className="bg-slate-50">
       <section className="relative overflow-hidden bg-slate-50">
-        <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_right,rgba(16,185,129,0.18),transparent_35%),radial-gradient(circle_at_top_left,rgba(249,115,22,0.12),transparent_28%)]" />
+       <div className="absolute inset-0 bg-gradient-to-b from-emerald-50 to-slate-50" />
 
         <div className="relative mx-auto grid max-w-6xl gap-10 px-4 py-16 md:grid-cols-[1.08fr_0.92fr] md:items-center md:py-24">
           <MotionSection>
