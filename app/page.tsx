@@ -113,11 +113,38 @@ export default function HomePage() {
           </Button>
         </div>
 
-        <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
-          {popularCalculators.map((calculator) => (
-            <CalculatorCard key={calculator.href} {...calculator} />
-          ))}
-        </div>
+        <div className="grid gap-3 md:hidden">
+  {popularCalculators.map((calculator) => (
+    <Link
+      key={calculator.href}
+      href={calculator.href}
+      className="rounded-3xl border border-slate-200 bg-white p-5 shadow-sm dark:border-slate-800 dark:bg-slate-900"
+    >
+      <p className="text-sm font-medium text-emerald-700 dark:text-emerald-300">
+        {calculator.category}
+      </p>
+
+      <h3 className="mt-2 text-xl font-bold tracking-tight text-slate-950 dark:text-white">
+        {calculator.title}
+      </h3>
+
+      <p className="mt-2 text-sm leading-6 text-slate-600 dark:text-slate-300">
+        {calculator.description}
+      </p>
+
+      <div className="mt-4 flex items-center gap-2 text-sm font-medium text-slate-700 dark:text-slate-200">
+        Calculate now
+        <ArrowRight className="h-4 w-4" />
+      </div>
+    </Link>
+  ))}
+</div>
+
+<div className="hidden gap-4 md:grid md:grid-cols-2 lg:grid-cols-4">
+  {popularCalculators.map((calculator) => (
+    <CalculatorCard key={calculator.href} {...calculator} />
+  ))}
+</div>
       </MotionSection>
 
       <MotionSection className="mx-auto max-w-6xl px-4 pb-16">
