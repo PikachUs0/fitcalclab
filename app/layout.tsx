@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { GoogleAnalytics } from "@next/third-parties/google";
 import { siteConfig } from "@/lib/site";
 import "./globals.css";
 
@@ -125,6 +126,9 @@ export default function RootLayout({
           <ThemeToggle />
         </ThemeProvider>
       </body>
+      {process.env.NEXT_PUBLIC_GA_ID ? (
+  <GoogleAnalytics gaId={process.env.NEXT_PUBLIC_GA_ID} />
+) : null}
     </html>
   );
 }
