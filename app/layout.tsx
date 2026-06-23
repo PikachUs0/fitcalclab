@@ -88,25 +88,7 @@ export const metadata: Metadata = {
   },
 };
 
-const siteJsonLd = [
-  {
-    "@context": "https://schema.org",
-    "@type": "WebSite",
-    "@id": `${siteConfig.url}/#website`,
-    name: siteConfig.name,
-    url: siteConfig.url,
-    description: siteConfig.description,
-    inLanguage: "en",
-  },
-  {
-    "@context": "https://schema.org",
-    "@type": "Organization",
-    "@id": `${siteConfig.url}/#organization`,
-    name: siteConfig.name,
-    url: siteConfig.url,
-    description: siteConfig.description,
-  },
-];
+
 
 export default function RootLayout({
   children,
@@ -125,10 +107,11 @@ export default function RootLayout({
           <Footer />
           <ThemeToggle />
         </ThemeProvider>
+
+        {process.env.NEXT_PUBLIC_GA_ID ? (
+          <GoogleAnalytics gaId={process.env.NEXT_PUBLIC_GA_ID} />
+        ) : null}
       </body>
-      {process.env.NEXT_PUBLIC_GA_ID ? (
-  <GoogleAnalytics gaId={process.env.NEXT_PUBLIC_GA_ID} />
-) : null}
     </html>
   );
 }
