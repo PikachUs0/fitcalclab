@@ -1,65 +1,179 @@
-import Image from "next/image";
+﻿import Link from "next/link";
+import { ArrowRight, CheckCircle2 } from "lucide-react";
 
-export default function Home() {
+import { calculators } from "@/data/calculators";
+import { CalculatorCard } from "@/components/common/CalculatorCard";
+import { CalorieTargetSlider } from "@/components/home/CalorieTargetSlider";
+import { DashboardPreview } from "@/components/home/DashboardPreview";
+import { MotionSection } from "@/components/motion/MotionSection";
+import { Button } from "@/components/ui/button";
+import { Card } from "@/components/ui/card";
+
+export default function HomePage() {
+  const popularCalculators = calculators.slice(0, 8);
+  const liveCalculators = calculators.filter(
+    (calculator) => calculator.status === "live"
+  );
+
   return (
-    <div className="flex flex-col flex-1 items-center justify-center bg-zinc-50 font-sans dark:bg-black">
-      <main className="flex flex-1 w-full max-w-3xl flex-col items-center justify-between py-32 px-16 bg-white dark:bg-black sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={100}
-          height={20}
-          priority
-        />
-        <div className="flex flex-col items-center gap-6 text-center sm:items-start sm:text-left">
-          <h1 className="max-w-xs text-3xl font-semibold leading-10 tracking-tight text-black dark:text-zinc-50">
-            To get started, edit the page.tsx file.
-          </h1>
-          <p className="max-w-md text-lg leading-8 text-zinc-600 dark:text-zinc-400">
-            Looking for a starting point or more instructions? Head over to{" "}
-            <a
-              href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Templates
-            </a>{" "}
-            or the{" "}
-            <a
-              href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Learning
-            </a>{" "}
-            center.
-          </p>
+    <main className="bg-slate-50">
+      <section className="relative overflow-hidden bg-slate-50">
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_right,rgba(16,185,129,0.18),transparent_35%),radial-gradient(circle_at_top_left,rgba(249,115,22,0.12),transparent_28%)]" />
+
+        <div className="relative mx-auto grid max-w-6xl gap-10 px-4 py-16 md:grid-cols-[1.08fr_0.92fr] md:items-center md:py-24">
+          <MotionSection>
+            <div className="inline-flex rounded-full border border-emerald-200 bg-white px-3 py-1 text-sm font-medium text-emerald-700 shadow-sm">
+              Fitness calculators, made simple
+            </div>
+
+            <h1 className="mt-6 max-w-3xl text-4xl font-bold tracking-tight text-slate-950 md:text-6xl">
+              Fitness calculators for calories, macros and body metrics.
+            </h1>
+
+            <p className="mt-6 max-w-2xl text-lg leading-8 text-slate-600">
+              Calculate BMI, BMR, TDEE, macros, protein, water intake and body
+              metrics with clean, fast and privacy-friendly tools.
+            </p>
+
+            <div className="mt-8 flex flex-col gap-3 sm:flex-row">
+              <Button
+                asChild
+                size="lg"
+                className="rounded-full bg-emerald-600 hover:bg-emerald-700"
+              >
+                <Link href="/calculators">
+                  Explore calculators
+                  <ArrowRight className="ml-2 h-4 w-4" />
+                </Link>
+              </Button>
+
+              <Button asChild size="lg" variant="outline" className="rounded-full">
+                <Link href="/bmi-calculator">Try BMI calculator</Link>
+              </Button>
+            </div>
+
+            <div className="mt-8 grid gap-3 text-sm text-slate-600 sm:grid-cols-3">
+              {["No signup", "Metric & imperial", "Clear explanations"].map(
+                (item) => (
+                  <div key={item} className="flex items-center gap-2">
+                    <CheckCircle2 className="h-4 w-4 text-emerald-600" />
+                    {item}
+                  </div>
+                )
+              )}
+            </div>
+
+            <div className="mt-8 grid gap-3 sm:grid-cols-3">
+              <Card className="border-slate-200 bg-white p-4 shadow-sm">
+                <p className="text-2xl font-bold text-slate-950">
+                  {liveCalculators.length}
+                </p>
+                <p className="mt-1 text-sm text-slate-600">
+                  Live calculators
+                </p>
+              </Card>
+
+              <Card className="border-slate-200 bg-white p-4 shadow-sm">
+                <p className="text-2xl font-bold text-slate-950">100%</p>
+                <p className="mt-1 text-sm text-slate-600">Browser-based</p>
+              </Card>
+
+              <Card className="border-slate-200 bg-white p-4 shadow-sm">
+                <p className="text-2xl font-bold text-slate-950">0</p>
+                <p className="mt-1 text-sm text-slate-600">Signup needed</p>
+              </Card>
+            </div>
+          </MotionSection>
+
+          <DashboardPreview />
         </div>
-        <div className="flex flex-col gap-4 text-base font-medium sm:flex-row">
-          <a
-            className="flex h-12 w-full items-center justify-center gap-2 rounded-full bg-foreground px-5 text-background transition-colors hover:bg-[#383838] dark:hover:bg-[#ccc] md:w-[158px]"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={16}
-              height={16}
-            />
-            Deploy Now
-          </a>
-          <a
-            className="flex h-12 w-full items-center justify-center rounded-full border border-solid border-black/[.08] px-5 transition-colors hover:border-transparent hover:bg-black/[.04] dark:border-white/[.145] dark:hover:bg-[#1a1a1a] md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Documentation
-          </a>
+      </section>
+
+      <MotionSection className="mx-auto max-w-6xl px-4 pt-12">
+        <div className="grid gap-6 rounded-[2rem] border border-slate-200 bg-white p-6 shadow-sm md:grid-cols-[0.9fr_1.1fr] md:p-8">
+          <div>
+            <p className="text-sm font-medium text-emerald-700">
+              Interactive planning
+            </p>
+
+            <h2 className="mt-2 text-3xl font-bold tracking-tight text-slate-950">
+              Try a quick calorie target preview
+            </h2>
+
+            <p className="mt-3 leading-7 text-slate-600">
+              Adjust the target and see how a simple calculator interaction can
+              help users explore fitness numbers before opening a full tool.
+            </p>
+          </div>
+
+          <CalorieTargetSlider />
         </div>
-      </main>
-    </div>
+      </MotionSection>
+
+      <MotionSection className="mx-auto max-w-6xl px-4 py-16">
+        <div className="mb-8 flex flex-col justify-between gap-4 md:flex-row md:items-end">
+          <div>
+            <p className="text-sm font-medium text-emerald-700">
+              Popular calculators
+            </p>
+
+            <h2 className="mt-2 text-3xl font-bold tracking-tight text-slate-950">
+              Start with your core fitness numbers
+            </h2>
+
+            <p className="mt-3 max-w-2xl text-slate-600">
+              Move from body metrics to calories, macros and training estimates
+              with connected calculator pages.
+            </p>
+          </div>
+
+          <Button asChild variant="outline" className="rounded-full">
+            <Link href="/calculators">View all calculators</Link>
+          </Button>
+        </div>
+
+        <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+          {popularCalculators.map((calculator) => (
+            <CalculatorCard key={calculator.href} {...calculator} />
+          ))}
+        </div>
+      </MotionSection>
+
+      <MotionSection className="mx-auto max-w-6xl px-4 pb-16">
+        <div className="grid gap-6 rounded-[2rem] bg-slate-950 p-6 text-white md:grid-cols-[0.9fr_1.1fr] md:p-8">
+          <div>
+            <p className="text-sm font-medium text-emerald-300">
+              Better calculator flow
+            </p>
+
+            <h2 className="mt-3 text-3xl font-bold tracking-tight">
+              Keep users moving from one result to the next.
+            </h2>
+
+            <p className="mt-4 leading-7 text-slate-300">
+              A user can start with BMI, continue with BMR and TDEE, then use
+              macros, protein and water calculators to understand the next
+              steps.
+            </p>
+          </div>
+
+          <div className="grid gap-3 sm:grid-cols-2">
+            {[
+              "BMI → BMR",
+              "BMR → TDEE",
+              "TDEE → Macros",
+              "Macros → Protein",
+            ].map((step) => (
+              <div
+                key={step}
+                className="rounded-2xl bg-white/10 p-4 text-sm font-medium text-slate-100 ring-1 ring-white/10"
+              >
+                {step}
+              </div>
+            ))}
+          </div>
+        </div>
+      </MotionSection>
+    </main>
   );
 }
