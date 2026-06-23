@@ -20,6 +20,12 @@ export const metadata: Metadata = {
 
   description: siteConfig.description,
 
+  icons: {
+  icon: "/favicon.svg",
+  shortcut: "/favicon.svg",
+  apple: "/favicon.svg",
+},
+
   applicationName: siteConfig.name,
 
   keywords: [
