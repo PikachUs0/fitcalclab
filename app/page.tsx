@@ -3,7 +3,6 @@ import { ArrowRight, CheckCircle2 } from "lucide-react";
 
 import { calculators } from "@/data/calculators";
 import { CalculatorCard } from "@/components/common/CalculatorCard";
-import { CalorieTargetSlider } from "@/components/home/CalorieTargetSlider";
 import { DashboardPreview } from "@/components/home/DashboardPreview";
 import { MotionSection } from "@/components/motion/MotionSection";
 import { Button } from "@/components/ui/button";
@@ -89,26 +88,7 @@ export default function HomePage() {
         </div>
       </section>
 
-      <MotionSection className="mx-auto max-w-6xl px-4 pt-12">
-        <div className="grid gap-6 rounded-[2rem] border border-slate-200 bg-white p-6 shadow-sm md:grid-cols-[0.9fr_1.1fr] md:p-8">
-          <div>
-            <p className="text-sm font-medium text-emerald-700">
-              Interactive planning
-            </p>
-
-            <h2 className="mt-2 text-3xl font-bold tracking-tight text-slate-950">
-              Try a quick calorie target preview
-            </h2>
-
-            <p className="mt-3 leading-7 text-slate-600">
-              Adjust the target and see how a simple calculator interaction can
-              help users explore fitness numbers before opening a full tool.
-            </p>
-          </div>
-
-          <CalorieTargetSlider />
-        </div>
-      </MotionSection>
+      
 
       <MotionSection className="mx-auto max-w-6xl px-4 py-16">
         <div className="mb-8 flex flex-col justify-between gap-4 md:flex-row md:items-end">
