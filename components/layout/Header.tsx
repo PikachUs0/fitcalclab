@@ -15,10 +15,12 @@ import { useState } from "react";
 import { calculators } from "@/data/calculators";
 import { Button } from "@/components/ui/button";
 
+// Blog linkini buraya ekledik, böylece hem masaüstünde hem mobilde otomatik listelenecek
 const navLinks = [
   { label: "Calculators", href: "/calculators" },
   { label: "BMI", href: "/bmi-calculator" },
   { label: "TDEE", href: "/tdee-calculator" },
+  { label: "Blog", href: "/blog" },
   { label: "About", href: "/about" },
 ];
 
@@ -52,6 +54,7 @@ export function Header() {
           </div>
         </Link>
 
+        {/* Masaüstü Navigasyon */}
         <nav className="hidden items-center gap-1 md:flex">
           {navLinks.map((link) => {
             const isActive = pathname === link.href;
@@ -63,7 +66,7 @@ export function Header() {
                 className={`rounded-full px-4 py-2 text-sm font-medium transition-colors ${
                   isActive
                     ? "bg-emerald-50 text-emerald-700"
-                    : "text-slate-600 hover:bg-slate-100 hover:text-slate-950"
+                    : "text-slate-600 hover:bg-slate-100 hover:text-slate-950 dark:text-slate-300 dark:hover:bg-slate-800 dark:hover:text-white"
                 }`}
               >
                 {link.label}
@@ -72,25 +75,28 @@ export function Header() {
           })}
         </nav>
 
+        {/* Masaüstü Sağ Buton Grubu */}
         <div className="hidden items-center gap-3 md:flex">
           <Button
             asChild
-            className="rounded-full bg-emerald-600 hover:bg-emerald-700"
+            className="rounded-full bg-emerald-600 hover:bg-emerald-700 text-white"
           >
             <Link href="/calculators">Start calculating</Link>
           </Button>
         </div>
 
+        {/* Mobil Menü Butonu */}
         <button
           type="button"
           onClick={() => setIsOpen((value) => !value)}
-          className="inline-flex h-10 w-10 items-center justify-center rounded-2xl border border-slate-200 bg-white text-slate-700 shadow-sm md:hidden"
+          className="inline-flex h-10 w-10 items-center justify-center rounded-2xl border border-slate-200 bg-white text-slate-700 shadow-sm md:hidden dark:border-slate-800 dark:bg-slate-900 dark:text-slate-300"
           aria-label="Toggle menu"
         >
           {isOpen ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
         </button>
       </div>
 
+      {/* Mobil Menü Paneli */}
       <AnimatePresence>
         {isOpen ? (
           <motion.div
@@ -98,7 +104,7 @@ export function Header() {
             animate={{ opacity: 1, y: 0, height: "auto" }}
             exit={{ opacity: 0, y: -8, height: 0 }}
             transition={{ duration: 0.25, ease: "easeOut" }}
-            className="overflow-hidden border-t border-slate-200 bg-white md:hidden"
+            className="overflow-hidden border-t border-slate-200 bg-white md:hidden dark:border-slate-800 dark:bg-slate-950"
           >
             <div className="mx-auto max-w-6xl px-4 py-4">
               <div className="grid gap-2">
@@ -112,8 +118,8 @@ export function Header() {
                       onClick={closeMenu}
                       className={`flex items-center justify-between rounded-2xl px-4 py-3 text-sm font-medium transition-colors ${
                         isActive
-                          ? "bg-emerald-50 text-emerald-700"
-                          : "bg-slate-50 text-slate-700 hover:bg-slate-100"
+                          ? "bg-emerald-50 text-emerald-700 dark:bg-emerald-950/50 dark:text-emerald-400"
+                          : "bg-slate-50 text-slate-700 hover:bg-slate-100 dark:bg-slate-900 dark:text-slate-300 dark:hover:bg-slate-800"
                       }`}
                     >
                       {link.label}
@@ -123,32 +129,35 @@ export function Header() {
                 })}
               </div>
 
-              <div className="mt-5 rounded-3xl bg-slate-950 p-4 text-white">
-                <div className="flex items-center gap-2">
-                  <Calculator className="h-4 w-4 text-emerald-300" />
-                  <p className="text-sm font-medium text-emerald-300">
-                    Live calculators
-                  </p>
-                </div>
+              {/* Mobil Canlı Hesaplayıcılar Kutusu */}
+              {liveCalculators.length > 0 && (
+                <div className="mt-5 rounded-3xl bg-slate-950 p-4 text-white dark:bg-slate-900">
+                  <div className="flex items-center gap-2">
+                    <Calculator className="h-4 w-4 text-emerald-300" />
+                    <p className="text-sm font-medium text-emerald-300">
+                      Live calculators
+                    </p>
+                  </div>
 
-                <div className="mt-3 grid gap-2">
-                  {liveCalculators.map((calculator) => (
-                    <Link
-                      key={calculator.href}
-                      href={calculator.href}
-                      onClick={closeMenu}
-                      className="flex items-center justify-between rounded-2xl bg-white/5 px-4 py-3 text-sm text-slate-100 transition-colors hover:bg-white/10"
-                    >
-                      {calculator.title}
-                      <ChevronRight className="h-4 w-4 text-slate-400" />
-                    </Link>
-                  ))}
+                  <div className="mt-3 grid gap-2">
+                    {liveCalculators.map((calculator) => (
+                      <Link
+                        key={calculator.href}
+                        href={calculator.href}
+                        onClick={closeMenu}
+                        className="flex items-center justify-between rounded-2xl bg-white/5 px-4 py-3 text-sm text-slate-100 transition-colors hover:bg-white/10"
+                      >
+                        {calculator.title}
+                        <ChevronRight className="h-4 w-4 text-slate-400" />
+                      </Link>
+                    ))}
+                  </div>
                 </div>
-              </div>
+              )}
 
               <Button
                 asChild
-                className="mt-4 w-full rounded-full bg-emerald-600 hover:bg-emerald-700"
+                className="mt-4 w-full rounded-full bg-emerald-600 hover:bg-emerald-700 text-white"
               >
                 <Link href="/calculators" onClick={closeMenu}>
                   Explore all calculators
