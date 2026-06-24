@@ -15,8 +15,8 @@ export default function HomePage() {
   );
 
   return (
-    <main className="bg-slate-50 text-slate-950 dark:bg-slate-950 dark:text-slate-50">
-  <section className="relative overflow-hidden bg-gradient-to-b from-emerald-50 via-white to-slate-50 dark:from-slate-950 dark:via-slate-950 dark:to-slate-900">
+    <main className="bg-slate-50 text-slate-950 dark:bg-[#082529] dark:text-slate-50">
+  <section className="relative overflow-hidden bg-gradient-to-b from-emerald-50 via-white to-slate-50 dark:from-[#082529] dark:via-[#082529] dark:to-[#082529]">
 
         <div className="relative mx-auto grid max-w-6xl gap-10 px-4 py-16 md:grid-cols-[1.08fr_0.92fr] md:items-center md:py-24">
           <MotionSection>

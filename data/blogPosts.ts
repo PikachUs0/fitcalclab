@@ -65,6 +65,61 @@ export const blogPosts: BlogPost[] = [
     relatedToolHref: "/protein-calculator",
     relatedToolLabel: "Protein Calculator",
   },
+  {
+    slug: "how-much-water-should-you-drink-per-day",
+    title: "How Much Water Should You Drink Per Day?",
+    description:
+      "Learn what affects daily water needs, how exercise and climate change hydration targets, and how to use water intake estimates wisely.",
+    category: "Nutrition",
+    readingTime: "7 min read",
+    publishedAt: "2026-06-24",
+    relatedToolHref: "/water-intake-calculator",
+    relatedToolLabel: "Water Intake Calculator",
+  },
+  {
+    slug: "how-to-estimate-body-fat-percentage",
+    title: "How to Estimate Body Fat Percentage",
+    description:
+      "Understand what body fat percentage means, how measurement-based estimates work, and why body fat results should be interpreted carefully.",
+    category: "Body Metrics",
+    readingTime: "8 min read",
+    publishedAt: "2026-06-24",
+    relatedToolHref: "/body-fat-calculator",
+    relatedToolLabel: "Body Fat Calculator",
+  },
+  {
+    slug: "ideal-weight-formulas-explained",
+    title: "Ideal Weight Formulas Explained",
+    description:
+      "Learn how ideal weight formulas work, why different formulas give different results, and how to interpret estimated healthy weight ranges.",
+    category: "Body Metrics",
+    readingTime: "7 min read",
+    publishedAt: "2026-06-24",
+    relatedToolHref: "/ideal-weight-calculator",
+    relatedToolLabel: "Ideal Weight Calculator",
+  },
+  {
+    slug: "one-rep-max-guide",
+    title: "One Rep Max Guide: Estimate Strength Safely",
+    description:
+      "Learn what one rep max means, how 1RM formulas estimate strength, and how training percentages can be used without testing a true max.",
+    category: "Training",
+    readingTime: "7 min read",
+    publishedAt: "2026-06-24",
+    relatedToolHref: "/one-rep-max-calculator",
+    relatedToolLabel: "One Rep Max Calculator",
+  },
+  {
+    slug: "weight-loss-timeline-explained",
+    title: "Weight Loss Timeline Explained",
+    description:
+      "Understand how calorie deficits relate to estimated weight loss timelines and why real progress can differ from calculator predictions.",
+    category: "Calories",
+    readingTime: "8 min read",
+    publishedAt: "2026-06-24",
+    relatedToolHref: "/weight-loss-timeline-calculator",
+    relatedToolLabel: "Weight Loss Timeline Calculator",
+  },
 ];
 
 export function getBlogPostBySlug(slug: string) {
