@@ -1,14 +1,15 @@
 import type { Metadata } from "next";
-import Script from "next/script";
-import { siteConfig } from "@/lib/site";
-import "./globals.css";
 
+import { GoogleAnalytics } from "@/components/analytics/GoogleAnalytics";
+import { ScrollProgress } from "@/components/common/ScrollProgress";
 import { Footer } from "@/components/layout/Footer";
 import { Header } from "@/components/layout/Header";
-import { ScrollProgress } from "@/components/common/ScrollProgress";
+import { SiteJsonLd } from "@/components/seo/SiteJsonLd";
 import { ThemeProvider } from "@/components/theme/ThemeProvider";
 import { ThemeToggle } from "@/components/theme/ThemeToggle";
-import { SiteJsonLd } from "@/components/seo/SiteJsonLd";
+import { siteConfig } from "@/lib/site";
+
+import "./globals.css";
 
 export const metadata: Metadata = {
   metadataBase: new URL(siteConfig.url),
@@ -22,10 +23,10 @@ export const metadata: Metadata = {
   description: siteConfig.description,
 
   icons: {
-  icon: "/favicon.svg",
-  shortcut: "/favicon.svg",
-  apple: "/favicon.svg",
-},
+    icon: "/favicon.svg",
+    shortcut: "/favicon.svg",
+    apple: "/favicon.svg",
+  },
 
   applicationName: siteConfig.name,
 
@@ -88,8 +89,6 @@ export const metadata: Metadata = {
   },
 };
 
-
-
 export default function RootLayout({
   children,
 }: Readonly<{
@@ -109,24 +108,8 @@ export default function RootLayout({
         </ThemeProvider>
 
         {process.env.NEXT_PUBLIC_GA_ID ? (
-  <>
-    <Script
-      src={`https://www.googletagmanager.com/gtag/js?id=${process.env.NEXT_PUBLIC_GA_ID}`}
-      strategy="afterInteractive"
-    />
-
-    <Script id="google-analytics" strategy="afterInteractive">
-      {`
-        window.dataLayer = window.dataLayer || [];
-        function gtag(){dataLayer.push(arguments);}
-        gtag('js', new Date());
-        gtag('config', '${process.env.NEXT_PUBLIC_GA_ID}', {
-          page_path: window.location.pathname
-        });
-      `}
-    </Script>
-  </>
-) : null}
+          <GoogleAnalytics measurementId={process.env.NEXT_PUBLIC_GA_ID} />
+        ) : null}
       </body>
     </html>
   );
