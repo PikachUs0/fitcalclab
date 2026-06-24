@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { ArrowLeft, ArrowRight } from "lucide-react";
-
+import { BlogPostJsonLd } from "@/components/seo/BlogPostJsonLd";
 import { blogPosts, getBlogPostBySlug } from "@/data/blogPosts";
 import { siteConfig } from "@/lib/site";
 
@@ -180,6 +180,12 @@ export default async function BlogPostPage({
 
   return (
     <main className="bg-slate-50 text-slate-950 dark:bg-slate-950 dark:text-slate-50">
+        <BlogPostJsonLd
+            title={post.title}
+            description={post.description}
+            slug={post.slug}
+            publishedAt={post.publishedAt}
+            />
       <article className="mx-auto max-w-3xl px-4 py-14 md:py-20">
         <Link
           href="/blog"
