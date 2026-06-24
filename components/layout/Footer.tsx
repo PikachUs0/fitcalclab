@@ -32,7 +32,7 @@ const footerLinks = [
         href: "/about",
       },
       {
-        label: "Blog", // Blog linkini buraya düzenli bir şekilde ekledik
+        label: "Blog",
         href: "/blog",
       },
       {
@@ -58,9 +58,8 @@ const footerLinks = [
 
 export function Footer() {
   return (
-    <footer className="border-t border-slate-200 bg-white">
+    <footer className="border-t border-slate-200 bg-white dark:border-slate-800 dark:bg-slate-950">
       <div className="mx-auto grid max-w-6xl gap-8 px-4 py-10 md:grid-cols-[1.2fr_1.8fr]">
-        {/* Sol Alan: Logo ve Açıklama */}
         <div className="flex flex-col items-start">
           <Link href="/" className="inline-flex items-center gap-3">
             <div className="flex h-10 w-10 items-center justify-center rounded-2xl bg-emerald-600 text-sm font-bold text-white">
@@ -68,27 +67,26 @@ export function Footer() {
             </div>
 
             <div>
-              <p className="font-semibold tracking-tight text-slate-950">
+              <p className="font-semibold tracking-tight text-slate-950 dark:text-white">
                 FitCalcLab
               </p>
-              <p className="text-sm text-slate-500">
+              <p className="text-sm text-slate-500 dark:text-slate-400">
                 Fitness numbers made simple.
               </p>
             </div>
           </Link>
 
-          <p className="mt-5 max-w-sm text-sm leading-6 text-slate-600">
+          <p className="mt-5 max-w-sm text-sm leading-6 text-slate-600 dark:text-slate-300">
             Simple fitness calculators for calories, macros, hydration, body
             metrics and training estimates. Results are informational estimates
             and are not medical advice.
           </p>
         </div>
 
-        {/* Sağ Alan: Link Grupları */}
         <div className="grid gap-8 sm:grid-cols-3">
           {footerLinks.map((group) => (
             <div key={group.title}>
-              <h2 className="text-sm font-semibold text-slate-950">
+              <h2 className="text-sm font-semibold text-slate-950 dark:text-white">
                 {group.title}
               </h2>
 
@@ -97,7 +95,7 @@ export function Footer() {
                   <li key={link.href}>
                     <Link
                       href={link.href}
-                      className="text-sm text-slate-600 transition-colors hover:text-emerald-700"
+                      className="text-sm text-slate-600 transition-colors hover:text-emerald-700 dark:text-slate-300 dark:hover:text-emerald-300"
                     >
                       {link.label}
                     </Link>
@@ -109,9 +107,8 @@ export function Footer() {
         </div>
       </div>
 
-      {/* Alt Footer: Telif Hakkı ve Uyarı */}
-      <div className="border-t border-slate-200">
-        <div className="mx-auto flex max-w-6xl flex-col gap-3 px-4 py-5 text-sm text-slate-500 sm:flex-row sm:items-center sm:justify-between">
+      <div className="border-t border-slate-200 dark:border-slate-800">
+        <div className="mx-auto flex max-w-6xl flex-col gap-3 px-4 py-5 text-sm text-slate-500 sm:flex-row sm:items-center sm:justify-between dark:text-slate-400">
           <p>© {new Date().getFullYear()} FitCalcLab. All rights reserved.</p>
           <p>Calculator estimates for informational purposes only.</p>
         </div>

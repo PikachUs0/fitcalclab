@@ -1,8 +1,9 @@
 import type { MetadataRoute } from "next";
 
+import { blogPosts } from "@/data/blogPosts";
 import { siteConfig } from "@/lib/site";
 
-const routes = [
+const staticRoutes = [
   "/",
   "/calculators",
   "/bmi-calculator",
@@ -14,6 +15,9 @@ const routes = [
   "/body-fat-calculator",
   "/ideal-weight-calculator",
   "/one-rep-max-calculator",
+  "/calorie-calculator",
+  "/weight-loss-timeline-calculator",
+  "/blog",
   "/about",
   "/contact",
   "/privacy-policy",
@@ -23,10 +27,19 @@ const routes = [
 export default function sitemap(): MetadataRoute.Sitemap {
   const currentDate = new Date();
 
-  return routes.map((route) => ({
+  const staticUrls = staticRoutes.map((route) => ({
     url: `${siteConfig.url}${route}`,
     lastModified: currentDate,
-    changeFrequency: route === "" ? "weekly" : "monthly",
-    priority: route === "" ? 1 : route === "/calculators" ? 0.9 : 0.8,
+    changeFrequency: "weekly" as const,
+    priority: route === "/" ? 1 : 0.8,
   }));
+
+  const blogUrls = blogPosts.map((post) => ({
+    url: `${siteConfig.url}/blog/${post.slug}`,
+    lastModified: currentDate,
+    changeFrequency: "monthly" as const,
+    priority: 0.7,
+  }));
+
+  return [...staticUrls, ...blogUrls];
 }
