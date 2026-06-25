@@ -93,7 +93,10 @@ export function CalculatorExplorer() {
       {filteredCalculators.length > 0 ? (
         <div className="mt-8 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
           {filteredCalculators.map((calculator) => (
-            <CalculatorCard key={calculator.href} {...calculator} />
+            <CalculatorCard
+  key={`${activeCategory}-${calculator.href}`}
+  {...calculator}
+/>
           ))}
         </div>
       ) : (

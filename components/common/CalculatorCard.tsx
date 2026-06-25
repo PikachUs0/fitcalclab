@@ -1,6 +1,7 @@
 ﻿"use client";
 
 import Link from "next/link";
+import { motion } from "motion/react";
 import {
   Activity,
   Apple,
@@ -88,27 +89,36 @@ export function CalculatorCard({
   const Icon = iconMap[icon];
 
   return (
-    <div className="h-full">
+    <motion.div
+      initial={{ opacity: 0, y: 10 }}
+      animate={{ opacity: 1, y: 0 }}
+      exit={{ opacity: 0, y: 8 }}
+      transition={{
+        duration: 0.40,
+        ease: "easeOut",
+      }}
+      className="h-full"
+    >
       <Link
         href={href}
         onClick={() => saveRecentlyViewedCalculator(href)}
         className="group block h-full"
       >
         <Card
-          className={`relative h-full overflow-hidden border p-5 shadow-sm transition-all duration-300 ${
+          className={`relative h-full overflow-hidden border p-5 shadow-sm transition-colors duration-200 ${
             isLive
-              ? "border-emerald-200 bg-white hover:border-emerald-300 hover:shadow-lg hover:shadow-emerald-100/70"
-              : "border-slate-200 bg-white/80 hover:border-slate-300 hover:shadow-md"
+              ? "border-emerald-200 bg-white hover:border-emerald-300 dark:border-emerald-900 dark:bg-slate-900 dark:hover:border-emerald-700"
+              : "border-slate-200 bg-white/80 hover:border-slate-300 dark:border-slate-800 dark:bg-slate-900 dark:hover:border-slate-700"
           }`}
         >
-          <div className="absolute inset-x-0 top-0 h-1 bg-gradient-to-r from-emerald-500 via-emerald-300 to-orange-400 opacity-0 transition-opacity duration-300 group-hover:opacity-100" />
+          <div className="absolute inset-x-0 top-0 h-1 bg-gradient-to-r from-emerald-500 via-emerald-300 to-orange-400 opacity-0 transition-opacity duration-200 group-hover:opacity-100" />
 
           <div className="flex items-start justify-between gap-4">
             <div
-              className={`flex h-12 w-12 items-center justify-center rounded-2xl ring-1 transition-transform duration-300 group-hover:scale-105 ${
+              className={`flex h-12 w-12 items-center justify-center rounded-2xl ring-1 transition-colors duration-200 ${
                 isLive
-                  ? "bg-emerald-100 text-emerald-700 ring-emerald-200"
-                  : "bg-slate-100 text-slate-600 ring-slate-200"
+                  ? "bg-emerald-100 text-emerald-700 ring-emerald-200 dark:bg-emerald-950 dark:text-emerald-300 dark:ring-emerald-800"
+                  : "bg-slate-100 text-slate-600 ring-slate-200 dark:bg-slate-800 dark:text-slate-300 dark:ring-slate-700"
               }`}
             >
               <Icon className="h-5 w-5" />
@@ -118,8 +128,8 @@ export function CalculatorCard({
               variant={isLive ? "default" : "secondary"}
               className={
                 isLive
-                  ? "bg-emerald-600 text-white hover:bg-emerald-600"
-                  : "bg-slate-100 text-slate-600 hover:bg-slate-100"
+                  ? "bg-emerald-600 text-white hover:bg-emerald-600 dark:bg-emerald-500 dark:text-slate-950 dark:hover:bg-emerald-500"
+                  : "bg-slate-100 text-slate-600 hover:bg-slate-100 dark:bg-slate-800 dark:text-slate-300 dark:hover:bg-slate-800"
               }
             >
               {isLive ? "Live" : "Soon"}
@@ -127,29 +137,32 @@ export function CalculatorCard({
           </div>
 
           <div className="mt-5">
+            {/* DÜZELTİLEN KISIM: className niteliği ve şablon dizisi (template literal) doğru şekilde eklendi */}
             <p
-              className={`text-sm font-medium ${
-                isLive ? "text-emerald-700" : "text-slate-500"
+              className={`text-xs font-semibold uppercase tracking-wider ${
+                isLive
+                  ? "text-emerald-700 dark:text-emerald-300"
+                  : "text-slate-500 dark:text-slate-400"
               }`}
             >
               {category}
             </p>
 
-            <h3 className="mt-1 text-lg font-semibold tracking-tight text-slate-950">
+            <h3 className="mt-1 text-lg font-semibold tracking-tight text-slate-950 dark:text-white">
               {title}
             </h3>
 
-            <p className="mt-2 text-sm leading-6 text-slate-600">
+            <p className="mt-2 text-sm leading-6 text-slate-600 dark:text-slate-300">
               {description}
             </p>
           </div>
 
-          <div className="mt-5 flex items-center gap-2 text-sm font-medium text-slate-700">
+          <div className="mt-5 flex items-center gap-2 text-sm font-medium text-slate-700 dark:text-slate-200">
             {isLive ? "Calculate now" : "Preview tool"}
-            <ArrowRight className="h-4 w-4 transition-transform duration-300 group-hover:translate-x-1" />
+            <ArrowRight className="h-4 w-4 transition-transform duration-200 group-hover:translate-x-1" />
           </div>
         </Card>
       </Link>
-    </div>
+    </motion.div>
   );
 }
