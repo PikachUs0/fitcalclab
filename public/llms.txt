@@ -1,0 +1,43 @@
+# FitCalcLab
+
+> FitCalcLab provides free fitness calculators and practical guides for BMI, BMR, TDEE, calories, macros, protein, hydration, body fat, ideal weight, strength estimates and weight loss timelines.
+
+## Core calculator pages
+
+- [BMI Calculator](https://fitcalclab.com/bmi-calculator): Estimate body mass index from height and weight.
+- [BMR Calculator](https://fitcalclab.com/bmr-calculator): Estimate basal metabolic rate.
+- [TDEE Calculator](https://fitcalclab.com/tdee-calculator): Estimate total daily energy expenditure from BMR and activity level.
+- [Calorie Calculator](https://fitcalclab.com/calorie-calculator): Estimate daily calorie needs for maintenance, fat loss or weight gain.
+- [Macro Calculator](https://fitcalclab.com/macro-calculator): Estimate protein, carbohydrate and fat targets from daily calories.
+- [Protein Calculator](https://fitcalclab.com/protein-calculator): Estimate daily protein needs and protein per meal.
+- [Water Intake Calculator](https://fitcalclab.com/water-intake-calculator): Estimate daily hydration needs based on weight, exercise and climate.
+- [Body Fat Calculator](https://fitcalclab.com/body-fat-calculator): Estimate body fat percentage from body measurements.
+- [Ideal Weight Calculator](https://fitcalclab.com/ideal-weight-calculator): Compare ideal weight formula estimates.
+- [One Rep Max Calculator](https://fitcalclab.com/one-rep-max-calculator): Estimate one rep max from weight and reps.
+- [Weight Loss Timeline Calculator](https://fitcalclab.com/weight-loss-timeline-calculator): Estimate a weight loss timeline from current weight, target weight and calorie deficit.
+
+## Fitness guide pages
+
+- [Fitness Guides](https://fitcalclab.com/blog): Practical fitness guides for understanding calculator results.
+- [How to Calculate BMI and What It Means](https://fitcalclab.com/blog/how-to-calculate-bmi): Explains BMI formula, BMI categories and BMI limitations.
+- [BMR vs TDEE: What Is the Difference?](https://fitcalclab.com/blog/bmr-vs-tdee): Explains resting calories and total daily energy expenditure.
+- [How Many Calories Should I Eat Per Day?](https://fitcalclab.com/blog/how-many-calories-should-i-eat): Explains maintenance calories, calorie deficits and calorie surpluses.
+- [Macro Split for Fat Loss, Maintenance and Muscle Gain](https://fitcalclab.com/blog/macro-split-for-fat-loss): Explains protein, carbohydrates and fat targets.
+- [How Much Protein Do You Need Per Day?](https://fitcalclab.com/blog/how-much-protein-per-day): Explains daily protein needs and protein per meal.
+- [How Much Water Should You Drink Per Day?](https://fitcalclab.com/blog/how-much-water-should-you-drink-per-day): Explains hydration estimates, exercise and climate.
+- [How to Estimate Body Fat Percentage](https://fitcalclab.com/blog/how-to-estimate-body-fat-percentage): Explains body fat percentage estimates and measurement-based methods.
+- [Ideal Weight Formulas Explained](https://fitcalclab.com/blog/ideal-weight-formulas-explained): Explains common ideal weight formulas and limitations.
+- [One Rep Max Guide: Estimate Strength Safely](https://fitcalclab.com/blog/one-rep-max-guide): Explains one rep max estimates and training percentages.
+- [Weight Loss Timeline Explained](https://fitcalclab.com/blog/weight-loss-timeline-explained): Explains calorie deficits and estimated weight loss timelines.
+
+## Site information
+
+- [About FitCalcLab](https://fitcalclab.com/about): Information about FitCalcLab.
+- [Contact](https://fitcalclab.com/contact): Contact page.
+- [Privacy Policy](https://fitcalclab.com/privacy-policy): Privacy information.
+- [Terms of Use](https://fitcalclab.com/terms): Terms of use.
+
+## Notes
+
+Calculator results are informational estimates and are not medical advice.
+Fitness, nutrition, hydration and body composition estimates should be interpreted with personal context.
