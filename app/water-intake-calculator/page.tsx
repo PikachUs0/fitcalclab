@@ -1,4 +1,5 @@
 ﻿import type { Metadata } from "next";
+import { QuickAnswer } from "@/components/common/QuickAnswer";
 import { CalculatorFaq } from "@/components/common/CalculatorFaq";
 import { BreadcrumbJsonLd } from "@/components/seo/BreadcrumbJsonLd";
 import { siteConfig } from "@/lib/site";
@@ -94,6 +95,14 @@ export default function WaterIntakeCalculatorPage() {
         <div className="mt-8">
           <CalculatorQuickNav currentHref="/water-intake-calculator" />
         </div>
+
+        <QuickAnswer>
+  <p>
+    The Water Intake Calculator estimates daily hydration needs based on body
+    weight, exercise time and climate. Water needs can change with heat,
+    sweating, activity level and daily routine.
+  </p>
+</QuickAnswer>
 
         <div className="mt-6">
           <WaterCalculator />

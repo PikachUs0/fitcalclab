@@ -1,4 +1,5 @@
 ﻿import type { Metadata } from "next";
+import { QuickAnswer } from "@/components/common/QuickAnswer";
 import { BreadcrumbJsonLd } from "@/components/seo/BreadcrumbJsonLd";
 import { CalculatorJsonLd } from "@/components/seo/CalculatorJsonLd";
 import { siteConfig } from "@/lib/site";
@@ -95,6 +96,16 @@ export default function MacroCalculatorPage() {
        <div className="mt-8">
   <CalculatorQuickNav currentHref="/macro-calculator" />
 </div>
+
+<QuickAnswer>
+  <p>
+    The Macro Calculator estimates daily protein, carbohydrate and fat targets
+    from a calorie goal. Macro results can help structure meals for fat loss,
+    maintenance or muscle gain, but they should be adjusted based on preference,
+    training and consistency.
+  </p>
+</QuickAnswer>
+
 
 <div className="mt-6">
   <MacroCalculator />

@@ -1,6 +1,7 @@
 ﻿import type { Metadata } from "next";
 import { BreadcrumbJsonLd } from "@/components/seo/BreadcrumbJsonLd";
 import { siteConfig } from "@/lib/site";
+import { QuickAnswer } from "@/components/common/QuickAnswer";
 import { CalculatorFaq } from "@/components/common/CalculatorFaq";
 import { CalculatorJsonLd } from "@/components/seo/CalculatorJsonLd";
 import { CalorieCalculator } from "@/components/calculators/CalorieCalculator";
@@ -101,8 +102,18 @@ export default function CalorieCalculatorPage() {
             currentHref="/calorie-calculator" 
             className="mt-6" 
           />
+
+           <QuickAnswer>
+  <p>
+    The Calorie Calculator estimates daily calorie needs for maintenance, fat
+    loss or weight gain. The result is a starting estimate and should be adjusted
+    based on real progress over time.
+  </p>
+</QuickAnswer>
           <CalorieCalculator />
         </div>
+
+       
 
         <div className="mt-10">
           <CalculatorInfoBox

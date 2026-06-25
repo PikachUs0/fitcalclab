@@ -1,6 +1,7 @@
 ﻿import type { Metadata } from "next";
 import { BreadcrumbJsonLd } from "@/components/seo/BreadcrumbJsonLd";
 import { siteConfig } from "@/lib/site";
+import { QuickAnswer } from "@/components/common/QuickAnswer";
 import { CalculatorFaq } from "@/components/common/CalculatorFaq";
 import { CalculatorJsonLd } from "@/components/seo/CalculatorJsonLd";
 import { WeightLossTimelineCalculator } from "@/components/calculators/WeightLossTimelineCalculator";
@@ -98,6 +99,13 @@ export default function WeightLossTimelineCalculatorPage() {
             currentHref="/weight-loss-timeline-calculator" 
             className="mt-6" 
           />
+          <QuickAnswer>
+  <p>
+    The Weight Loss Timeline Calculator estimates how long it may take to reach
+    a target weight based on current weight, target weight and calorie deficit.
+    Real progress can vary because weight loss is not perfectly linear.
+  </p>
+</QuickAnswer>
           <WeightLossTimelineCalculator />
         </div>
 

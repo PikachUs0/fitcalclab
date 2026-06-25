@@ -1,6 +1,7 @@
 ﻿import type { Metadata } from "next";
 import { BreadcrumbJsonLd } from "@/components/seo/BreadcrumbJsonLd";
 import { siteConfig } from "@/lib/site";
+import { QuickAnswer } from "@/components/common/QuickAnswer";
 import { CalculatorFaq } from "@/components/common/CalculatorFaq";
 import { CalculatorJsonLd } from "@/components/seo/CalculatorJsonLd";
 import { ProteinCalculator } from "@/components/calculators/ProteinCalculator";
@@ -97,6 +98,14 @@ export default function ProteinCalculatorPage() {
         <div className="mt-8">
           <CalculatorQuickNav currentHref="/protein-calculator" />
         </div>
+
+        <QuickAnswer>
+  <p>
+    The Protein Calculator estimates daily protein needs based on body weight
+    and fitness goal. It can also help divide protein across meals, making daily
+    targets easier to plan and follow.
+  </p>
+</QuickAnswer>
 
         <div className="mt-6">
           <ProteinCalculator />

@@ -1,6 +1,7 @@
 ﻿import type { Metadata } from "next";
 import { BreadcrumbJsonLd } from "@/components/seo/BreadcrumbJsonLd";
 import { siteConfig } from "@/lib/site";
+import { QuickAnswer } from "@/components/common/QuickAnswer";
 import { CalculatorFaq } from "@/components/common/CalculatorFaq";
 import { CalculatorJsonLd } from "@/components/seo/CalculatorJsonLd";
 import { TdeeCalculator } from "@/components/calculators/TdeeCalculator";
@@ -95,7 +96,14 @@ export default function TdeeCalculatorPage() {
         <div className="mt-8">
           <CalculatorQuickNav currentHref="/tdee-calculator" />
         </div>
-
+<QuickAnswer>
+  <p>
+    The TDEE Calculator estimates total daily energy expenditure by combining
+    resting calorie needs with an activity level. TDEE is often used as a
+    starting point for maintenance calories, fat loss calories or muscle gain
+    calories.
+  </p>
+</QuickAnswer>
         <div className="mt-6">
           <TdeeCalculator />
         </div>

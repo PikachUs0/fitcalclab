@@ -1,4 +1,5 @@
 ﻿import type { Metadata } from "next";
+import { QuickAnswer } from "@/components/common/QuickAnswer";
 import { BreadcrumbJsonLd } from "@/components/seo/BreadcrumbJsonLd";
 import { siteConfig } from "@/lib/site";
 import { CalculatorFaq } from "@/components/common/CalculatorFaq";
@@ -99,6 +100,15 @@ export default function BmrCalculatorPage() {
         <div className="mt-8">
           <CalculatorQuickNav currentHref="/bmr-calculator" />
         </div>
+
+        <QuickAnswer>
+  <p>
+    The BMR Calculator estimates basal metabolic rate, which is the amount of
+    energy your body may use at rest for basic functions such as breathing,
+    circulation and temperature regulation. BMR is a starting estimate and is
+    usually lower than total daily calorie needs.
+  </p>
+</QuickAnswer>
 
         <div className="mt-6">
           <BmrCalculator />

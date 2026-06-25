@@ -1,4 +1,5 @@
 ﻿import type { Metadata } from "next";
+import { QuickAnswer } from "@/components/common/QuickAnswer";
 import { BreadcrumbJsonLd } from "@/components/seo/BreadcrumbJsonLd";
 import { siteConfig } from "@/lib/site";
 import { CalculatorFaq } from "@/components/common/CalculatorFaq";
@@ -96,6 +97,15 @@ export default function IdealWeightCalculatorPage() {
         <div className="mt-8">
           <CalculatorQuickNav currentHref="/ideal-weight-calculator" />
         </div>
+
+        <QuickAnswer>
+  <p>
+    The Ideal Weight Calculator compares common formula estimates for body
+    weight based mainly on height. Ideal weight results are general references,
+    not exact targets, and should be interpreted with body composition and
+    personal context.
+  </p>
+</QuickAnswer>
 
         <div className="mt-6">
           <IdealWeightCalculator />

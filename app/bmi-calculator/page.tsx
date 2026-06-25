@@ -1,5 +1,6 @@
 import { BmiCalculator } from "@/components/calculators/BmiCalculator";
 import type { Metadata } from "next";
+import { QuickAnswer } from "@/components/common/QuickAnswer";
 import { CalculatorFaq } from "@/components/common/CalculatorFaq";
 import { BreadcrumbJsonLd } from "@/components/seo/BreadcrumbJsonLd";
 import { siteConfig } from "@/lib/site";
@@ -104,6 +105,13 @@ export default function BmiCalculatorPage() {
         <div className="mt-8">
           <CalculatorQuickNav currentHref="/bmi-calculator" />
         </div>
+        <QuickAnswer>
+  <p>
+    The BMI Calculator estimates body mass index by comparing body weight with
+    height. BMI is useful as a quick screening estimate, but it does not directly
+    measure body fat, muscle mass or overall health.
+  </p>
+</QuickAnswer>
 
         <div className="mt-8">
           <BmiCalculator />

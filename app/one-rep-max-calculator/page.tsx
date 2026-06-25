@@ -1,6 +1,7 @@
 ﻿import type { Metadata } from "next";
 import { BreadcrumbJsonLd } from "@/components/seo/BreadcrumbJsonLd";
 import { siteConfig } from "@/lib/site";
+import { QuickAnswer } from "@/components/common/QuickAnswer";
 import { CalculatorFaq } from "@/components/common/CalculatorFaq";
 import { CalculatorJsonLd } from "@/components/seo/CalculatorJsonLd";
 
@@ -102,6 +103,15 @@ export default function OneRepMaxCalculatorPage() {
             currentHref="/one-rep-max-calculator" 
             className="mt-6" 
           />
+
+          <QuickAnswer>
+  <p>
+    The One Rep Max Calculator estimates maximum strength from a weight lifted
+    for multiple reps. It can help plan training percentages without requiring a
+    true max attempt.
+  </p>
+</QuickAnswer>
+
           <OneRepMaxCalculator />
         </div>
 

@@ -1,4 +1,5 @@
 ﻿import type { Metadata } from "next";
+import { QuickAnswer } from "@/components/common/QuickAnswer";
 import { BreadcrumbJsonLd } from "@/components/seo/BreadcrumbJsonLd";
 import { siteConfig } from "@/lib/site";
 import { CalculatorFaq } from "@/components/common/CalculatorFaq";
@@ -96,6 +97,13 @@ export default function BodyFatCalculatorPage() {
           <CalculatorQuickNav currentHref="/body-fat-calculator" />
         </div>
 
+<QuickAnswer>
+  <p>
+    The Body Fat Calculator estimates body fat percentage from body
+    measurements. The result can give more context than weight alone, but it is
+    still an estimate and depends on consistent measurement technique.
+  </p>
+</QuickAnswer>
         <div className="mt-6">
           <BodyFatCalculator />
         </div>

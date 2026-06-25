@@ -18,7 +18,7 @@
 
 ## Fitness guide pages
 
-- [Fitness Guides](https://fitcalclab.com/blog): Practical fitness guides for understanding calculator results.
+- [Fitness Guides](https://fitcalclab.com/blog): Practical guides for understanding calculator results.
 - [How to Calculate BMI and What It Means](https://fitcalclab.com/blog/how-to-calculate-bmi): Explains BMI formula, BMI categories and BMI limitations.
 - [BMR vs TDEE: What Is the Difference?](https://fitcalclab.com/blog/bmr-vs-tdee): Explains resting calories and total daily energy expenditure.
 - [How Many Calories Should I Eat Per Day?](https://fitcalclab.com/blog/how-many-calories-should-i-eat): Explains maintenance calories, calorie deficits and calorie surpluses.
