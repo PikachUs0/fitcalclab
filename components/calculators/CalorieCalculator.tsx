@@ -240,7 +240,7 @@ Unit system: ${unit === "metric" ? "Metric" : "Imperial"}`
     : "";
 
   return (
-    <div className="grid items-start gap-6 lg:grid-cols-[1fr_0.9fr] lg:min-h-[620px]">
+    <div className="grid gap-6 lg:grid-cols-[1fr_0.9fr]">
       {/* Sol Kolon: Girdi Formu */}
       <Card className="border-slate-200 bg-white p-5 shadow-sm md:p-6">
         <div className="mb-6">
