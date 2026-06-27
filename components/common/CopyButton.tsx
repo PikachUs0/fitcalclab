@@ -1,9 +1,7 @@
 "use client";
 
-import { useEffect, useState, type MouseEvent } from "react";
+import { useEffect, useState, type MouseEvent, type PointerEvent, type TouchEvent } from "react";
 import { Check, Copy } from "lucide-react";
-
-import { Button } from "@/components/ui/button";
 
 type CopyButtonProps = {
   text: string;
@@ -68,10 +66,7 @@ export function CopyButton({ text, label = "Copy result" }: CopyButtonProps) {
     };
   }, [status]);
 
-  async function handleCopy(event: MouseEvent<HTMLButtonElement>) {
-    event.preventDefault();
-    event.stopPropagation();
-
+  async function runCopy() {
     const textToCopy = normalizeCopyText(text);
 
     if (!textToCopy) {
@@ -95,19 +90,30 @@ export function CopyButton({ text, label = "Copy result" }: CopyButtonProps) {
 
       setStatus("error");
     } catch {
-      try {
-        const fallbackCopied = copyWithFallback(textToCopy);
+      const fallbackCopied = copyWithFallback(textToCopy);
 
-        if (fallbackCopied) {
-          setStatus("copied");
-          return;
-        }
-
-        setStatus("error");
-      } catch {
-        setStatus("error");
+      if (fallbackCopied) {
+        setStatus("copied");
+        return;
       }
+
+      setStatus("error");
     }
+  }
+
+  function stopEvent(
+    event:
+      | MouseEvent<HTMLButtonElement>
+      | PointerEvent<HTMLButtonElement>
+      | TouchEvent<HTMLButtonElement>,
+  ) {
+    event.preventDefault();
+    event.stopPropagation();
+  }
+
+  async function handleClick(event: MouseEvent<HTMLButtonElement>) {
+    stopEvent(event);
+    await runCopy();
   }
 
   const buttonLabel =
@@ -119,21 +125,22 @@ export function CopyButton({ text, label = "Copy result" }: CopyButtonProps) {
 
   return (
     <div className="grid gap-2">
-      <Button
+      <button
         type="button"
-        variant="outline"
-        onClick={handleCopy}
+        onClick={handleClick}
+        onPointerDown={stopEvent}
+        onTouchEnd={stopEvent}
         disabled={!hasText}
-        className="rounded-full"
+        className="inline-flex items-center justify-center gap-2 rounded-full border border-slate-300 bg-white px-4 py-2 text-sm font-semibold text-slate-800 shadow-sm transition-colors hover:border-emerald-300 hover:bg-emerald-50 disabled:cursor-not-allowed disabled:opacity-60 dark:border-slate-700 dark:bg-slate-900 dark:text-slate-100 dark:hover:border-emerald-700 dark:hover:bg-emerald-950"
       >
         {status === "copied" ? (
-          <Check className="mr-2 h-4 w-4" />
+          <Check className="h-4 w-4" />
         ) : (
-          <Copy className="mr-2 h-4 w-4" />
+          <Copy className="h-4 w-4" />
         )}
 
         {buttonLabel}
-      </Button>
+      </button>
 
       {status === "error" ? (
         <p className="text-xs leading-5 text-red-600 dark:text-red-400">
