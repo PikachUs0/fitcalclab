@@ -7,7 +7,6 @@ import { CalculatorJsonLd } from "@/components/seo/CalculatorJsonLd";
 import { CalorieCalculator } from "@/components/calculators/CalorieCalculator";
 import { CalculatorInfoBox } from "@/components/common/CalculatorInfoBox";
 import { CalculatorQuickNav } from "@/components/common/CalculatorQuickNav";
-import { MotionSection } from "@/components/motion/MotionSection";
 
 export const metadata: Metadata = {
   title: "Calorie Calculator - Estimate Your Daily Calorie Needs",
@@ -82,7 +81,7 @@ export default function CalorieCalculatorPage() {
   path="/calorie-calculator"
 />
 
-      <MotionSection className="mx-auto max-w-6xl px-4 py-12">
+      <section className="mx-auto max-w-6xl px-4 py-14">
         <div className="max-w-3xl">
           <p className="text-sm font-medium text-emerald-700">Calories</p>
 
@@ -156,7 +155,7 @@ export default function CalorieCalculatorPage() {
         <div className="mt-10">
   <CalculatorFaq items={calorieFaqItems} />
 </div>
-      </MotionSection>
+      </section>
     </main>
   );
 }
