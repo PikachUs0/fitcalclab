@@ -1,7 +1,6 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import { AnimatePresence, motion } from "motion/react";
 import {
   Activity,
   Calculator,
@@ -43,9 +42,7 @@ export function ProteinCalculator() {
 
   const [result, setResult] = useState<ProteinResult | null>(null);
   const [error, setError] = useState("");
-  const [mounted, setMounted] = useState(false);
 
-  // İlk yüklemede local storage verilerini güvenli bir şekilde çekiyoruz
   useEffect(() => {
     const profile = getFitnessProfile();
     const savedUnit = (profile.unit ?? getPreferredUnit("metric")) as ProteinUnit;
@@ -65,8 +62,6 @@ export function ProteinCalculator() {
     if (profile.mealsPerDay) {
       setMealsPerDay(String(profile.mealsPerDay));
     }
-    
-    setMounted(true);
   }, []);
 
   function handleUnitChange(value: string) {
@@ -128,7 +123,6 @@ export function ProteinCalculator() {
 
       setResult(calculated);
 
-      // Kırık olan profil güncelleme blokları temiz bir mantığa kavuşturuldu
       if (unit === "metric") {
         updateFitnessProfile({
           unit,
@@ -159,11 +153,6 @@ export function ProteinCalculator() {
     setError("");
   }
 
-  // Hydration hatasını önlemek için mount olana kadar boş layout bırakıyoruz
-  if (!mounted) {
-    return <div className="min-h-[400px] animate-pulse rounded-3xl bg-slate-100" />;
-  }
-
   const copyText = result
     ? `My protein result from FitCalcLab:
 Daily protein target: ${result.targetGrams}g/day
@@ -179,7 +168,6 @@ Unit system: ${unit === "metric" ? "Metric" : "Imperial"}`
 
   return (
     <div className="grid items-start gap-6 lg:grid-cols-[1fr_0.9fr]">
-      {/* Sol Kolon: Girdi Formu */}
       <Card className="border-slate-200 bg-white p-5 shadow-sm md:p-6 dark:border-slate-800 dark:bg-slate-900">
         <div className="mb-6">
           <h2 className="text-xl font-semibold tracking-tight text-slate-950 dark:text-white">
@@ -270,7 +258,7 @@ Unit system: ${unit === "metric" ? "Metric" : "Imperial"}`
           />
 
           {error ? (
-            <p className="rounded-2xl bg-red-50 px-4 py-3 text-sm text-red-700">
+            <p className="rounded-2xl bg-red-50 px-4 py-3 text-sm text-red-700 dark:bg-red-950/40 dark:text-red-300">
               {error}
             </p>
           ) : null}
@@ -298,101 +286,85 @@ Unit system: ${unit === "metric" ? "Metric" : "Imperial"}`
         </div>
       </Card>
 
-      {/* Sağ Kolon: Sonuçlar */}
-      <div>
-        <AnimatePresence mode="wait">
-          {result ? (
-            <motion.div
-              key="result"
-              initial={{ opacity: 0, y: 18, scale: 0.98 }}
-              animate={{ opacity: 1, y: 0, scale: 1 }}
-              exit={{ opacity: 0, y: 12, scale: 0.98 }}
-              transition={{ duration: 0.35, ease: "easeOut" }}
-              className="grid gap-4"
-            >
+      <div className="min-h-[520px]">
+        {result ? (
+          <div className="grid min-h-[520px] gap-4">
+            <ResultCard
+              label="Daily protein target"
+              value={`${result.targetGrams}g/day`}
+              numericValue={result.targetGrams}
+              suffix="g/day"
+              description={`Goal: ${result.goalLabel}`}
+              tone="emerald"
+            />
+
+            <div className="grid gap-4 sm:grid-cols-2">
               <ResultCard
-                label="Daily protein target"
-                value={`${result.targetGrams}g/day`}
-                numericValue={result.targetGrams}
-                suffix="g/day"
-                description={`Goal: ${result.goalLabel}`}
-                tone="emerald"
+                label="Estimated range"
+                value={`${result.minGrams} - ${result.maxGrams}g`}
+                numericValue={result.minGrams}
+                suffix="g"
+                description="Daily protein range."
+                tone="slate"
               />
 
-              <div className="grid gap-4 sm:grid-cols-2">
-                <ResultCard
-                  label="Estimated range"
-                  value={`${result.minGrams} - ${result.maxGrams}g`}
-                  numericValue={result.minGrams}
-                  suffix="g"
-                  description="Daily protein range."
-                  tone="slate"
-                />
+              <ResultCard
+                label="Per meal target"
+                value={`${result.targetPerMeal}g`}
+                numericValue={result.targetPerMeal}
+                suffix="g"
+                description="Average per meal."
+                tone="orange"
+              />
+            </div>
 
-                <ResultCard
-                  label="Per meal target"
-                  value={`${result.targetPerMeal}g`}
-                  numericValue={result.targetPerMeal}
-                  suffix="g"
-                  description="Average per meal."
-                  tone="orange"
-                />
-              </div>
+            <Card className="border-slate-200 bg-white p-5 shadow-sm dark:border-slate-800 dark:bg-slate-900">
+              <h3 className="text-lg font-semibold tracking-tight text-slate-950 dark:text-white">
+                Per meal range
+              </h3>
 
-              <Card className="border-slate-200 bg-white p-5 shadow-sm">
-                <h3 className="text-lg font-semibold tracking-tight text-slate-950">
-                  Per meal range
-                </h3>
+              <p className="mt-3 text-sm leading-6 text-slate-700 dark:text-slate-300">
+                If you eat {mealsPerDay} meals per day, your estimated protein
+                range is about <strong>{result.minPerMeal}g</strong> to{" "}
+                <strong>{result.maxPerMeal}g</strong> per meal.
+              </p>
+            </Card>
 
-                <p className="mt-3 text-sm leading-6 text-slate-700 dark:text-slate-300">
-                  If you eat {mealsPerDay} meals per day, your estimated protein
-                  range is about <strong>{result.minPerMeal}g</strong> to{" "}
-                  <strong>{result.maxPerMeal}g</strong> per meal.
-                </p>
-              </Card>
+            <Card className="border-slate-200 bg-white p-5 shadow-sm dark:border-slate-800 dark:bg-slate-900">
+              <div className="flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
+                <div>
+                  <h3 className="text-lg font-semibold tracking-tight text-slate-950 dark:text-white">
+                    Save or share your result
+                  </h3>
 
-              <Card className="border-slate-200 bg-white p-5 shadow-sm">
-                <div className="flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
-                  <div>
-                    <h3 className="text-lg font-semibold tracking-tight text-slate-950">
-                      Save or share your result
-                    </h3>
-
-                    <p className="mt-1 text-sm leading-6 text-slate-700 dark:text-slate-300">
-                      Copy your protein target and save it to notes or use it in
-                      your meal planning.
-                    </p>
-                  </div>
-
-                  <CopyButton text={copyText} />
+                  <p className="mt-1 text-sm leading-6 text-slate-700 dark:text-slate-300">
+                    Copy your protein target and save it to notes or use it in
+                    your meal planning.
+                  </p>
                 </div>
-              </Card>
 
-              <Card className="border-orange-100 bg-orange-50 p-5 text-sm leading-6 text-orange-800">
-                {result.description} This calculator is informational only and
-                is not medical advice.
-              </Card>
-            </motion.div>
-          ) : (
-            <motion.div
-              key="empty"
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              exit={{ opacity: 0 }}
-              className="flex min-h-[360px] items-center justify-center rounded-3xl border border-dashed border-slate-300 bg-slate-50 p-8 text-center"
-            >
-              <div>
-                <p className="text-lg font-semibold text-slate-900">
-                  Your result will appear here
-                </p>
-
-                <p className="mt-2 max-w-sm text-sm leading-6 text-slate-700 dark:text-slate-300">
-                  Enter your weight and goal to estimate your protein target.
-                </p>
+                <CopyButton text={copyText} />
               </div>
-            </motion.div>
-          )}
-        </AnimatePresence>
+            </Card>
+
+            <Card className="border-orange-100 bg-orange-50 p-5 text-sm leading-6 text-orange-900 dark:border-orange-900 dark:bg-orange-950/40 dark:text-orange-200">
+              {result.description} This calculator is informational only and is
+              not medical advice.
+            </Card>
+          </div>
+        ) : (
+          <div className="flex min-h-[520px] items-center justify-center rounded-3xl border border-dashed border-slate-300 bg-slate-50 p-8 text-center dark:border-slate-800 dark:bg-slate-950">
+            <div>
+              <p className="text-lg font-semibold text-slate-950 dark:text-white">
+                Your result will appear here
+              </p>
+
+              <p className="mt-2 max-w-sm text-sm leading-6 text-slate-700 dark:text-slate-300">
+                Enter your weight and goal to estimate your protein target.
+              </p>
+            </div>
+          </div>
+        )}
       </div>
     </div>
   );
