@@ -1,4 +1,4 @@
-ï»¿import Link from "next/link";
+import Link from "next/link";
 import { ArrowRight, CheckCircle2 } from "lucide-react";
 
 import { calculators } from "@/data/calculators";
@@ -167,10 +167,10 @@ export default function HomePage() {
 
           <div className="grid gap-3 sm:grid-cols-2">
             {[
-              "BMI â†’ BMR",
-              "BMR â†’ TDEE",
-              "TDEE â†’ Macros",
-              "Macros â†’ Protein",
+              "BMI › BMR",
+              "BMR › TDEE",
+              "TDEE › Macros",
+              "Macros › Protein",
             ].map((step) => (
               <div
                 key={step}

@@ -1,4 +1,4 @@
-ï»¿"use client";
+"use client";
 
 import { useEffect, useState } from "react";
 import { AnimatePresence, motion } from "motion/react";
@@ -281,7 +281,7 @@ Unit system: ${unit === "metric" ? "Metric" : "Imperial"}`
     : "";
 
   return (
-    <div className="grid gap-6 lg:grid-cols-[1fr_0.9fr]">
+    <div className="grid items-start gap-6 lg:grid-cols-[1fr_0.9fr]">
       {/* Sol Kolon: Girdi Formu */}
       <Card className="border-slate-200 bg-white p-5 shadow-sm md:p-6">
         <div className="mb-6">
@@ -294,7 +294,7 @@ Unit system: ${unit === "metric" ? "Metric" : "Imperial"}`
           </p>
         </div>
 
-        {/* TÃ¼m girdi elemanlarÄ±nÄ± yapÄ±sal olarak sarmalayan dikey grid aÃ§Ä±lÄ±ÅŸ etiketi eklendi */}
+        {/* Tüm girdi elemanlarını yapısal olarak sarmalayan dikey grid açılış etiketi eklendi */}
         <div className="grid gap-5">
           <SegmentedControl
         id="body-fat-unit"
@@ -429,10 +429,10 @@ Unit system: ${unit === "metric" ? "Metric" : "Imperial"}`
               Reset
             </Button>
           </div>
-        </div> {/* Alt Ä±zgara kapanÄ±ÅŸ divi baÅŸarÄ±yla eÅŸlendi */}
+        </div> {/* Alt ızgara kapanış divi başarıyla eşlendi */}
       </Card>
 
-      {/* SaÄŸ Kolon: SonuÃ§ AlanÄ± */}
+      {/* Sağ Kolon: Sonuç Alanı */}
       <div>
         <AnimatePresence mode="wait">
           {result ? (

@@ -1,4 +1,4 @@
-﻿import type { Metadata } from "next";
+import type { Metadata } from "next";
 import { QuickAnswer } from "@/components/common/QuickAnswer";
 import { CalculatorFaq } from "@/components/common/CalculatorFaq";
 import { BreadcrumbJsonLd } from "@/components/seo/BreadcrumbJsonLd";

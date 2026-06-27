@@ -1,4 +1,4 @@
-﻿import Link from "next/link";
+import Link from "next/link";
 import { ArrowLeft, Sparkles } from "lucide-react";
 
 import { MotionSection } from "@/components/motion/MotionSection";
@@ -61,3 +61,4 @@ export function ComingSoonPage({
     </main>
   );
 }
+

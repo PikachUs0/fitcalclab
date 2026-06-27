@@ -1,4 +1,4 @@
-﻿import { CalculatorExplorer } from "@/components/calculators/CalculatorExplorer";
+import { CalculatorExplorer } from "@/components/calculators/CalculatorExplorer";
 import { MotionSection } from "@/components/motion/MotionSection";
 
 export default function CalculatorsPage() {

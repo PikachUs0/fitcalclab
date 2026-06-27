@@ -1,4 +1,4 @@
-ï»¿"use client";
+"use client";
 
 import Link from "next/link";
 import { motion } from "motion/react";
@@ -137,7 +137,7 @@ export function CalculatorCard({
           </div>
 
           <div className="mt-5">
-            {/* DÃœZELTÄ°LEN KISIM: className niteliÄŸi ve ÅŸablon dizisi (template literal) doÄŸru ÅŸekilde eklendi */}
+            {/* DÜZELTÝLEN KISIM: className niteliði ve þablon dizisi (template literal) doðru þekilde eklendi */}
             <p
               className={`text-xs font-semibold uppercase tracking-wider ${
                 isLive

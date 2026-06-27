@@ -1,4 +1,4 @@
-﻿import type { Metadata } from "next";
+import type { Metadata } from "next";
 
 import { MotionSection } from "@/components/motion/MotionSection";
 import { Card } from "@/components/ui/card";

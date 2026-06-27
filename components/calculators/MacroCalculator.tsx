@@ -1,4 +1,4 @@
-ï»¿"use client";
+"use client";
 
 import { useEffect, useState } from "react";
 import { AnimatePresence, motion } from "motion/react";
@@ -127,7 +127,7 @@ Fat: ${result.fatPerMeal}g`
     : "";
 
   return (
-    <div className="grid gap-6 lg:grid-cols-[1fr_0.9fr]">
+    <div className="grid items-start gap-6 lg:grid-cols-[1fr_0.9fr]">
       {/* Sol Kolon: Girdi Formu */}
       <Card className="border-slate-200 bg-white p-5 shadow-sm md:p-6">
         <div className="mb-6">
@@ -218,7 +218,7 @@ Fat: ${result.fatPerMeal}g`
         </div>
       </Card>
 
-      {/* SaÄŸ Kolon: SonuÃ§lar */}
+      {/* Sað Kolon: Sonuçlar */}
       <div>
         <AnimatePresence mode="wait">
           {result ? (
@@ -268,7 +268,7 @@ Fat: ${result.fatPerMeal}g`
                 />
               </div>
 
-              {/* DaÄŸÄ±lÄ±m KartÄ± */}
+              {/* Daðýlým Kartý */}
               <Card className="border-slate-200 bg-white p-5 shadow-sm">
                 <h3 className="text-lg font-semibold tracking-tight text-slate-950">
                   Macro distribution
@@ -307,7 +307,7 @@ Fat: ${result.fatPerMeal}g`
                 )}
               </Card>
 
-              {/* Ã–ÄŸÃ¼n BaÅŸÄ±na Tahmin KartÄ± */}
+              {/* Öðün Baþýna Tahmin Kartý */}
               <Card className="border-slate-200 bg-white p-5 shadow-sm">
                 <h3 className="text-lg font-semibold tracking-tight text-slate-950">
                   Per meal estimate
@@ -322,7 +322,7 @@ Fat: ${result.fatPerMeal}g`
                 </p>
               </Card>
 
-              {/* PaylaÅŸÄ±m KartÄ± */}
+              {/* Paylaþým Kartý */}
               <Card className="border-slate-200 bg-white p-5 shadow-sm">
                 <div className="flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
                   <div>

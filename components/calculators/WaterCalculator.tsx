@@ -1,4 +1,4 @@
-ï»¿"use client";
+"use client";
 
 import { useEffect, useState } from "react";
 import { AnimatePresence, motion } from "motion/react";
@@ -182,7 +182,7 @@ Exercise minutes: ${exerciseMinutes} minutes/day`
     : "";
 
   return (
-    <div className="grid gap-6 lg:grid-cols-[1fr_0.9fr]">
+    <div className="grid items-start gap-6 lg:grid-cols-[1fr_0.9fr]">
       {/* Sol Kolon: Input Formu */}
       <Card className="border-slate-200 bg-white p-5 shadow-sm md:p-6">
         <div className="mb-6">
@@ -195,7 +195,7 @@ Exercise minutes: ${exerciseMinutes} minutes/day`
           </p>
         </div>
 
-        {/* Form elemanlarÄ±nÄ± dÃ¼zgÃ¼n hizalamak iÃ§in grid kapsayÄ±cÄ± div eklendi */}
+        {/* Form elemanlarını düzgün hizalamak için grid kapsayıcı div eklendi */}
         <div className="grid gap-5">
           <SegmentedControl
   id="water-unit"
@@ -290,10 +290,10 @@ Exercise minutes: ${exerciseMinutes} minutes/day`
               Reset
             </Button>
           </div>
-        </div> {/* grid gap-5 kapanÄ±ÅŸ divi baÅŸarÄ±yla eÅŸlendi */}
+        </div> {/* grid gap-5 kapanış divi başarıyla eşlendi */}
       </Card>
 
-      {/* SaÄŸ Kolon: SonuÃ§ AlanÄ± */}
+      {/* Sağ Kolon: Sonuç Alanı */}
       <div>
         <AnimatePresence mode="wait">
           {result ? (
@@ -305,7 +305,7 @@ Exercise minutes: ${exerciseMinutes} minutes/day`
               transition={{ duration: 0.35, ease: "easeOut" }}
               className="grid gap-4"
             >
-              {/* SonuÃ§ KartlarÄ± Grubu */}
+              {/* Sonuç Kartları Grubu */}
               <div className="grid gap-4">
                 <ResultCard
                   label="Daily water estimate"
@@ -336,7 +336,7 @@ Exercise minutes: ${exerciseMinutes} minutes/day`
                 />
               </div>
 
-              {/* Detay/KÄ±rÄ±lÄ±m KartÄ± */}
+              {/* Detay/Kırılım Kartı */}
               <Card className="border-slate-200 bg-white p-5 shadow-sm">
                 <h3 className="text-lg font-semibold tracking-tight text-slate-950">
                   Breakdown
@@ -348,7 +348,7 @@ Exercise minutes: ${exerciseMinutes} minutes/day`
                 </div>
               </Card>
 
-              {/* PaylaÅŸma KartÄ± */}
+              {/* Paylaşma Kartı */}
               <Card className="border-slate-200 bg-white p-5 shadow-sm">
                 <div className="flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
                   <div>
@@ -364,7 +364,7 @@ Exercise minutes: ${exerciseMinutes} minutes/day`
                 </div>
               </Card>
 
-              {/* TÄ±bbi UyarÄ± Notu */}
+              {/* Tıbbi Uyarı Notu */}
               <Card className="border-orange-100 bg-orange-50 p-5 text-sm leading-6 text-orange-800">
                 {result.description && `${result.description} `}Hydration needs can vary. This is not medical advice.
               </Card>

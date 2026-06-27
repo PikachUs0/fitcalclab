@@ -1,4 +1,4 @@
-﻿import type { Metadata } from "next";
+import type { Metadata } from "next";
 import { QuickAnswer } from "@/components/common/QuickAnswer";
 import { BreadcrumbJsonLd } from "@/components/seo/BreadcrumbJsonLd";
 import { CalculatorJsonLd } from "@/components/seo/CalculatorJsonLd";
@@ -153,3 +153,4 @@ export default function MacroCalculatorPage() {
     </main>
   );
 }
+

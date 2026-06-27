@@ -1,4 +1,4 @@
-ï»¿"use client";
+"use client";
 
 import { useEffect, useState } from "react";
 import { AnimatePresence, motion } from "motion/react";
@@ -45,7 +45,7 @@ export function ProteinCalculator() {
   const [error, setError] = useState("");
   const [mounted, setMounted] = useState(false);
 
-  // Ä°lk yÃ¼klemede local storage verilerini gÃ¼venli bir ÅŸekilde Ã§ekiyoruz
+  // Ýlk yüklemede local storage verilerini güvenli bir þekilde çekiyoruz
   useEffect(() => {
     const profile = getFitnessProfile();
     const savedUnit = (profile.unit ?? getPreferredUnit("metric")) as ProteinUnit;
@@ -128,7 +128,7 @@ export function ProteinCalculator() {
 
       setResult(calculated);
 
-      // KÄ±rÄ±k olan profil gÃ¼ncelleme bloklarÄ± temiz bir mantÄ±ÄŸa kavuÅŸturuldu
+      // Kýrýk olan profil güncelleme bloklarý temiz bir mantýða kavuþturuldu
       if (unit === "metric") {
         updateFitnessProfile({
           unit,
@@ -159,7 +159,7 @@ export function ProteinCalculator() {
     setError("");
   }
 
-  // Hydration hatasÄ±nÄ± Ã¶nlemek iÃ§in mount olana kadar boÅŸ layout bÄ±rakÄ±yoruz
+  // Hydration hatasýný önlemek için mount olana kadar boþ layout býrakýyoruz
   if (!mounted) {
     return <div className="min-h-[400px] animate-pulse rounded-3xl bg-slate-100" />;
   }
@@ -178,7 +178,7 @@ Unit system: ${unit === "metric" ? "Metric" : "Imperial"}`
     : "";
 
   return (
-    <div className="grid gap-6 lg:grid-cols-[1fr_0.9fr]">
+    <div className="grid items-start gap-6 lg:grid-cols-[1fr_0.9fr]">
       {/* Sol Kolon: Girdi Formu */}
       <Card className="border-slate-200 bg-white p-5 shadow-sm md:p-6">
         <div className="mb-6">
@@ -298,7 +298,7 @@ Unit system: ${unit === "metric" ? "Metric" : "Imperial"}`
         </div>
       </Card>
 
-      {/* SaÄŸ Kolon: SonuÃ§lar */}
+      {/* Sað Kolon: Sonuçlar */}
       <div>
         <AnimatePresence mode="wait">
           {result ? (

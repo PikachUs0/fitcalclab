@@ -1,4 +1,4 @@
-ï»¿import type { Metadata } from "next";
+import type { Metadata } from "next";
 import { BreadcrumbJsonLd } from "@/components/seo/BreadcrumbJsonLd";
 import { siteConfig } from "@/lib/site";
 import { QuickAnswer } from "@/components/common/QuickAnswer";
@@ -97,7 +97,7 @@ export default function CalorieCalculatorPage() {
         </div>
 
         <div className="mt-8">
-          {/* HatalÄ± birleÅŸik yazÄ±m ve eksik etiket kapanÄ±ÅŸÄ± dÃ¼zeltildi */}
+          {/* Hatalý birleþik yazým ve eksik etiket kapanýþý düzeltildi */}
           <CalculatorQuickNav 
             currentHref="/calorie-calculator" 
             className="mt-6" 

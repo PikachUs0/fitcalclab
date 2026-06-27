@@ -1,7 +1,7 @@
-ï»¿"use client";
+"use client";
 
 import { useEffect, useState } from "react";
-import { AnimatePresence, motion } from "motion/react"; // Projenize gÃ¶re 'framer-motion' da kullanÄ±labilir
+import { AnimatePresence, motion } from "motion/react"; // Projenize göre 'framer-motion' da kullanýlabilir
 import { Calculator, RotateCcw } from "lucide-react";
 
 import {
@@ -104,7 +104,7 @@ ${result.percentages
     : "";
 
   return (
-    <div className="grid gap-6 lg:grid-cols-[1fr_0.9fr]">
+    <div className="grid items-start gap-6 lg:grid-cols-[1fr_0.9fr]">
       {/* Sol Kolon: Girdi Formu */}
       <Card className="border-slate-200 bg-white p-5 shadow-sm md:p-6">
         <div className="mb-6">
@@ -117,7 +117,7 @@ ${result.percentages
           </p>
         </div>
 
-        {/* GiriÅŸ alanlarÄ±nÄ± dÃ¼zgÃ¼nce sarmalamak iÃ§in alt Ä±zgara (grid) kapsayÄ±cÄ±sÄ± eklendi */}
+        {/* Giriþ alanlarýný düzgünce sarmalamak için alt ýzgara (grid) kapsayýcýsý eklendi */}
         <div className="grid gap-5">
           <AnimatedNumberSliderField
             id="one-rep-max-weight"
@@ -167,10 +167,10 @@ ${result.percentages
               Reset
             </Button>
           </div>
-        </div> {/* grid gap-5 div kapanÄ±ÅŸÄ± senkronize edildi */}
+        </div> {/* grid gap-5 div kapanýþý senkronize edildi */}
       </Card>
 
-      {/* SaÄŸ Kolon: SonuÃ§lar */}
+      {/* Sað Kolon: Sonuçlar */}
       <div>
         <AnimatePresence mode="wait">
           {result ? (

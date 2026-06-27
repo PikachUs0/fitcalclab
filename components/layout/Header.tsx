@@ -1,4 +1,4 @@
-ï»¿"use client";
+"use client";
 
 import Link from "next/link";
 import { usePathname } from "next/navigation";
@@ -15,7 +15,7 @@ import { useState } from "react";
 import { calculators } from "@/data/calculators";
 import { Button } from "@/components/ui/button";
 
-// Blog linkini buraya ekledik, bÃ¶ylece hem masaÃ¼stÃ¼nde hem mobilde otomatik listelenecek
+// Blog linkini buraya ekledik, böylece hem masaüstünde hem mobilde otomatik listelenecek
 const navLinks = [
   { label: "Calculators", href: "/calculators" },
   { label: "BMI", href: "/bmi-calculator" },
@@ -48,13 +48,13 @@ export function Header() {
             <span className="block text-lg font-semibold tracking-tight text-slate-950">
               FitCalcLab
             </span>
-            <span className="hidden text-xs text-slate-500 sm:block">
+            <span className="hidden text-xs text-slate-700 sm:block">
               Fitness numbers made simple
             </span>
           </div>
         </Link>
 
-        {/* MasaÃ¼stÃ¼ Navigasyon */}
+        {/* Masaüstü Navigasyon */}
         <nav className="hidden items-center gap-1 md:flex">
           {navLinks.map((link) => {
             const isActive = pathname === link.href;
@@ -66,7 +66,7 @@ export function Header() {
                 className={`rounded-full px-4 py-2 text-sm font-medium transition-colors ${
                   isActive
                     ? "bg-emerald-50 text-emerald-700"
-                    : "text-slate-600 hover:bg-slate-100 hover:text-slate-950 dark:text-slate-300 dark:hover:bg-slate-800 dark:hover:text-white"
+                    : "text-slate-800 hover:bg-slate-100 hover:text-slate-950 dark:text-slate-300 dark:hover:bg-slate-800 dark:hover:text-white"
                 }`}
               >
                 {link.label}
@@ -75,7 +75,7 @@ export function Header() {
           })}
         </nav>
 
-        {/* MasaÃ¼stÃ¼ SaÄŸ Buton Grubu */}
+        {/* Masaüstü Sað Buton Grubu */}
         <div className="hidden items-center gap-3 md:flex">
           <Button
             asChild
@@ -85,7 +85,7 @@ export function Header() {
           </Button>
         </div>
 
-        {/* Mobil MenÃ¼ Butonu */}
+        {/* Mobil Menü Butonu */}
         <button
           type="button"
           onClick={() => setIsOpen((value) => !value)}
@@ -96,7 +96,7 @@ export function Header() {
         </button>
       </div>
 
-      {/* Mobil MenÃ¼ Paneli */}
+      {/* Mobil Menü Paneli */}
       <AnimatePresence>
         {isOpen ? (
           <motion.div
@@ -129,7 +129,7 @@ export function Header() {
                 })}
               </div>
 
-              {/* Mobil CanlÄ± HesaplayÄ±cÄ±lar Kutusu */}
+              {/* Mobil Canlý Hesaplayýcýlar Kutusu */}
               {liveCalculators.length > 0 && (
                 <div className="mt-5 rounded-3xl bg-slate-950 p-4 text-white dark:bg-slate-900">
                   <div className="flex items-center gap-2">

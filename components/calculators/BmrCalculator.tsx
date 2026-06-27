@@ -147,7 +147,7 @@ Unit system: ${unit === "metric" ? "Metric" : "Imperial"}`
     : "";
 
   return (
-    <div className="grid gap-6 lg:grid-cols-[1fr_0.9fr]">
+    <div className="grid items-start gap-6 lg:grid-cols-[1fr_0.9fr]">
       <Card className="border-slate-200 bg-white p-5 shadow-sm md:p-6">
         <div className="mb-6">
           <h2 className="text-xl font-semibold tracking-tight text-slate-950">

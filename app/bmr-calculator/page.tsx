@@ -1,4 +1,4 @@
-ï»¿import type { Metadata } from "next";
+import type { Metadata } from "next";
 import { QuickAnswer } from "@/components/common/QuickAnswer";
 import { BreadcrumbJsonLd } from "@/components/seo/BreadcrumbJsonLd";
 import { siteConfig } from "@/lib/site";
@@ -162,8 +162,8 @@ export default function BmrCalculatorPage() {
           </p>
 
           <div className="mt-5 grid gap-3 rounded-2xl bg-slate-50 p-5 font-mono text-sm text-slate-700">
-            <p>Male formula: 10 Ã— weight + 6.25 Ã— height - 5 Ã— age + 5</p>
-            <p>Female formula: 10 Ã— weight + 6.25 Ã— height - 5 Ã— age - 161</p>
+            <p>Male formula: 10 × weight + 6.25 × height - 5 × age + 5</p>
+            <p>Female formula: 10 × weight + 6.25 × height - 5 × age - 161</p>
           </div>
 
           <div className="mt-6 rounded-2xl bg-orange-50 p-5 text-sm leading-6 text-orange-800">

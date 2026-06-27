@@ -1,4 +1,4 @@
-ï»¿import type { Metadata } from "next";
+import type { Metadata } from "next";
 import { BreadcrumbJsonLd } from "@/components/seo/BreadcrumbJsonLd";
 import { siteConfig } from "@/lib/site";
 import { QuickAnswer } from "@/components/common/QuickAnswer";
@@ -94,7 +94,7 @@ export default function WeightLossTimelineCalculatorPage() {
         </div>
 
         <div className="mt-8">
-          {/* HatalÄ± prop birleÅŸimi ve eksik etiket kapanÄ±ÅŸÄ± dÃ¼zeltildi */}
+          {/* Hatalý prop birleþimi ve eksik etiket kapanýþý düzeltildi */}
           <CalculatorQuickNav 
             currentHref="/weight-loss-timeline-calculator" 
             className="mt-6" 
