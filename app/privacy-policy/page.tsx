@@ -139,10 +139,10 @@ export default function PrivacyPolicyPage() {
             </p>
 
             <a
-              href="mailto:contact@fitcalclab.com"
+              href="mailto:fitcalclab@gmail.com"
               className="mt-3 inline-flex font-medium text-emerald-700 underline-offset-4 hover:underline"
             >
-              contact@fitcalclab.com
+              fitcalclab@gmail.com
             </a>
           </Card>
         </div>
