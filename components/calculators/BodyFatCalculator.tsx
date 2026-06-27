@@ -294,7 +294,7 @@ Unit system: ${unit === "metric" ? "Metric" : "Imperial"}`
           </p>
         </div>
 
-        {/* Tüm girdi elemanlarını yapısal olarak sarmalayan dikey grid açılış etiketi eklendi */}
+        {/* TÃ¼m girdi elemanlarÄ±nÄ± yapÄ±sal olarak sarmalayan dikey grid aÃ§Ä±lÄ±ÅŸ etiketi eklendi */}
         <div className="grid gap-5">
           <SegmentedControl
         id="body-fat-unit"
@@ -429,10 +429,10 @@ Unit system: ${unit === "metric" ? "Metric" : "Imperial"}`
               Reset
             </Button>
           </div>
-        </div> {/* Alt ızgara kapanış divi başarıyla eşlendi */}
+        </div> {/* Alt Ä±zgara kapanÄ±ÅŸ divi baÅŸarÄ±yla eÅŸlendi */}
       </Card>
 
-      {/* Sağ Kolon: Sonuç Alanı */}
+      {/* SaÄŸ Kolon: SonuÃ§ AlanÄ± */}
       <div>
         <AnimatePresence mode="wait">
           {result ? (

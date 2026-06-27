@@ -1,7 +1,7 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import { AnimatePresence, motion } from "motion/react"; // Projenize göre 'framer-motion' da kullanılabilir
+import { AnimatePresence, motion } from "motion/react"; // Projenize gÃ¶re 'framer-motion' da kullanÄ±labilir
 import { Calculator, RotateCcw } from "lucide-react";
 
 import {
@@ -117,7 +117,7 @@ ${result.percentages
           </p>
         </div>
 
-        {/* Giriş alanlarını düzgünce sarmalamak için alt ızgara (grid) kapsayıcısı eklendi */}
+        {/* GiriÅŸ alanlarÄ±nÄ± dÃ¼zgÃ¼nce sarmalamak iÃ§in alt Ä±zgara (grid) kapsayÄ±cÄ±sÄ± eklendi */}
         <div className="grid gap-5">
           <AnimatedNumberSliderField
             id="one-rep-max-weight"
@@ -167,10 +167,10 @@ ${result.percentages
               Reset
             </Button>
           </div>
-        </div> {/* grid gap-5 div kapanışı senkronize edildi */}
+        </div> {/* grid gap-5 div kapanÄ±ÅŸÄ± senkronize edildi */}
       </Card>
 
-      {/* Sağ Kolon: Sonuçlar */}
+      {/* SaÄŸ Kolon: SonuÃ§lar */}
       <div>
         <AnimatePresence mode="wait">
           {result ? (

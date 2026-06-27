@@ -97,7 +97,7 @@ export default function CalorieCalculatorPage() {
         </div>
 
         <div className="mt-8">
-          {/* Hatalı birleşik yazım ve eksik etiket kapanışı düzeltildi */}
+          {/* HatalÄ± birleÅŸik yazÄ±m ve eksik etiket kapanÄ±ÅŸÄ± dÃ¼zeltildi */}
           <CalculatorQuickNav 
             currentHref="/calorie-calculator" 
             className="mt-6" 

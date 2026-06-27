@@ -94,7 +94,7 @@ export default function WeightLossTimelineCalculatorPage() {
         </div>
 
         <div className="mt-8">
-          {/* Hatalı prop birleşimi ve eksik etiket kapanışı düzeltildi */}
+          {/* HatalÄ± prop birleÅŸimi ve eksik etiket kapanÄ±ÅŸÄ± dÃ¼zeltildi */}
           <CalculatorQuickNav 
             currentHref="/weight-loss-timeline-calculator" 
             className="mt-6" 

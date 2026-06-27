@@ -45,7 +45,7 @@ export function ProteinCalculator() {
   const [error, setError] = useState("");
   const [mounted, setMounted] = useState(false);
 
-  // İlk yüklemede local storage verilerini güvenli bir şekilde çekiyoruz
+  // Ä°lk yÃ¼klemede local storage verilerini gÃ¼venli bir ÅŸekilde Ã§ekiyoruz
   useEffect(() => {
     const profile = getFitnessProfile();
     const savedUnit = (profile.unit ?? getPreferredUnit("metric")) as ProteinUnit;
@@ -128,7 +128,7 @@ export function ProteinCalculator() {
 
       setResult(calculated);
 
-      // Kırık olan profil güncelleme blokları temiz bir mantığa kavuşturuldu
+      // KÄ±rÄ±k olan profil gÃ¼ncelleme bloklarÄ± temiz bir mantÄ±ÄŸa kavuÅŸturuldu
       if (unit === "metric") {
         updateFitnessProfile({
           unit,
@@ -159,7 +159,7 @@ export function ProteinCalculator() {
     setError("");
   }
 
-  // Hydration hatasını önlemek için mount olana kadar boş layout bırakıyoruz
+  // Hydration hatasÄ±nÄ± Ã¶nlemek iÃ§in mount olana kadar boÅŸ layout bÄ±rakÄ±yoruz
   if (!mounted) {
     return <div className="min-h-[400px] animate-pulse rounded-3xl bg-slate-100" />;
   }
@@ -298,7 +298,7 @@ Unit system: ${unit === "metric" ? "Metric" : "Imperial"}`
         </div>
       </Card>
 
-      {/* Sağ Kolon: Sonuçlar */}
+      {/* SaÄŸ Kolon: SonuÃ§lar */}
       <div>
         <AnimatePresence mode="wait">
           {result ? (

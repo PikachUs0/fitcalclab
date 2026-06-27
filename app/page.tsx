@@ -167,10 +167,10 @@ export default function HomePage() {
 
           <div className="grid gap-3 sm:grid-cols-2">
             {[
-              "BMI › BMR",
-              "BMR › TDEE",
-              "TDEE › Macros",
-              "Macros › Protein",
+              "BMI â€º BMR",
+              "BMR â€º TDEE",
+              "TDEE â€º Macros",
+              "Macros â€º Protein",
             ].map((step) => (
               <div
                 key={step}

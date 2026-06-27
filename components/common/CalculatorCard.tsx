@@ -137,7 +137,7 @@ export function CalculatorCard({
           </div>
 
           <div className="mt-5">
-            {/* DÜZELTÝLEN KISIM: className niteliði ve þablon dizisi (template literal) doðru þekilde eklendi */}
+            {/* DÃœZELTÄ°LEN KISIM: className niteliÄŸi ve ÅŸablon dizisi (template literal) doÄŸru ÅŸekilde eklendi */}
             <p
               className={`text-xs font-semibold uppercase tracking-wider ${
                 isLive

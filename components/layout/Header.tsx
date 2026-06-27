@@ -15,7 +15,7 @@ import { useState } from "react";
 import { calculators } from "@/data/calculators";
 import { Button } from "@/components/ui/button";
 
-// Blog linkini buraya ekledik, böylece hem masaüstünde hem mobilde otomatik listelenecek
+// Blog linkini buraya ekledik, bÃ¶ylece hem masaÃ¼stÃ¼nde hem mobilde otomatik listelenecek
 const navLinks = [
   { label: "Calculators", href: "/calculators" },
   { label: "BMI", href: "/bmi-calculator" },
@@ -54,7 +54,7 @@ export function Header() {
           </div>
         </Link>
 
-        {/* Masaüstü Navigasyon */}
+        {/* MasaÃ¼stÃ¼ Navigasyon */}
         <nav className="hidden items-center gap-1 md:flex">
           {navLinks.map((link) => {
             const isActive = pathname === link.href;
@@ -75,7 +75,7 @@ export function Header() {
           })}
         </nav>
 
-        {/* Masaüstü Sað Buton Grubu */}
+        {/* MasaÃ¼stÃ¼ SaÄŸ Buton Grubu */}
         <div className="hidden items-center gap-3 md:flex">
           <Button
             asChild
@@ -85,7 +85,7 @@ export function Header() {
           </Button>
         </div>
 
-        {/* Mobil Menü Butonu */}
+        {/* Mobil MenÃ¼ Butonu */}
         <button
           type="button"
           onClick={() => setIsOpen((value) => !value)}
@@ -96,7 +96,7 @@ export function Header() {
         </button>
       </div>
 
-      {/* Mobil Menü Paneli */}
+      {/* Mobil MenÃ¼ Paneli */}
       <AnimatePresence>
         {isOpen ? (
           <motion.div
@@ -129,7 +129,7 @@ export function Header() {
                 })}
               </div>
 
-              {/* Mobil Canlý Hesaplayýcýlar Kutusu */}
+              {/* Mobil CanlÄ± HesaplayÄ±cÄ±lar Kutusu */}
               {liveCalculators.length > 0 && (
                 <div className="mt-5 rounded-3xl bg-slate-950 p-4 text-white dark:bg-slate-900">
                   <div className="flex items-center gap-2">

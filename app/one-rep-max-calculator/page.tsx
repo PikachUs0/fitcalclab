@@ -98,7 +98,7 @@ export default function OneRepMaxCalculatorPage() {
         </div>
 
         <div className="mt-8">
-          {/* Hatalý prop yazýmý ve eksik etiket kapanýþý düzeltildi */}
+          {/* HatalÄ± prop yazÄ±mÄ± ve eksik etiket kapanÄ±ÅŸÄ± dÃ¼zeltildi */}
           <CalculatorQuickNav 
             currentHref="/one-rep-max-calculator" 
             className="mt-6" 
@@ -141,7 +141,7 @@ export default function OneRepMaxCalculatorPage() {
           </p>
 
           <div className="mt-6 rounded-2xl bg-slate-50 p-5 text-sm leading-6 text-slate-700">
-            Formula used: 1RM = weight × (1 + reps / 30)
+            Formula used: 1RM = weight Ã— (1 + reps / 30)
           </div>
 
           <div className="mt-6 rounded-2xl bg-orange-50 p-5 text-sm leading-6 text-orange-800">

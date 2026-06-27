@@ -134,7 +134,7 @@ export default function TdeeCalculatorPage() {
           </p>
 
           <div className="mt-6 rounded-2xl bg-slate-50 p-5 text-sm leading-6 text-slate-700">
-            Formula: TDEE = BMR × activity multiplier
+            Formula: TDEE = BMR Ã— activity multiplier
           </div>
 
           <div className="mt-6 rounded-2xl bg-orange-50 p-5 text-sm leading-6 text-orange-800">

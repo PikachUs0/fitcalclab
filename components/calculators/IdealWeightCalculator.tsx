@@ -176,7 +176,7 @@ Height: ${height} ${unit === "metric" ? "cm" : "inches"}`
           </p>
         </div>
 
-        {/* Tüm form elemanlarını nizamlı tutacak dikey grid kapsayıcı eklendi */}
+        {/* TÃ¼m form elemanlarÄ±nÄ± nizamlÄ± tutacak dikey grid kapsayÄ±cÄ± eklendi */}
         <div className="grid gap-5">
           <SegmentedControl
         id="ideal-weight-unit"
@@ -258,10 +258,10 @@ Height: ${height} ${unit === "metric" ? "cm" : "inches"}`
               Reset
             </Button>
           </div>
-        </div> {/* Alt ızgara kapanış divi başarıyla eşlendi */}
+        </div> {/* Alt Ä±zgara kapanÄ±ÅŸ divi baÅŸarÄ±yla eÅŸlendi */}
       </Card>
 
-      {/* Sağ Kolon: Sonuç Alanı */}
+      {/* SaÄŸ Kolon: SonuÃ§ AlanÄ± */}
       <div>
         <AnimatePresence mode="wait">
           {result ? (

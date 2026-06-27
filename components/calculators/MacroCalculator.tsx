@@ -218,7 +218,7 @@ Fat: ${result.fatPerMeal}g`
         </div>
       </Card>
 
-      {/* Sağ Kolon: Sonuçlar */}
+      {/* SaÄŸ Kolon: SonuÃ§lar */}
       <div>
         <AnimatePresence mode="wait">
           {result ? (
@@ -268,7 +268,7 @@ Fat: ${result.fatPerMeal}g`
                 />
               </div>
 
-              {/* Dağılım Kartı */}
+              {/* DaÄŸÄ±lÄ±m KartÄ± */}
               <Card className="border-slate-200 bg-white p-5 shadow-sm">
                 <h3 className="text-lg font-semibold tracking-tight text-slate-950">
                   Macro distribution
@@ -307,7 +307,7 @@ Fat: ${result.fatPerMeal}g`
                 )}
               </Card>
 
-              {/* Öğün Başına Tahmin Kartı */}
+              {/* Ã–ÄŸÃ¼n BaÅŸÄ±na Tahmin KartÄ± */}
               <Card className="border-slate-200 bg-white p-5 shadow-sm">
                 <h3 className="text-lg font-semibold tracking-tight text-slate-950">
                   Per meal estimate
@@ -322,7 +322,7 @@ Fat: ${result.fatPerMeal}g`
                 </p>
               </Card>
 
-              {/* Paylaşım Kartı */}
+              {/* PaylaÅŸÄ±m KartÄ± */}
               <Card className="border-slate-200 bg-white p-5 shadow-sm">
                 <div className="flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
                   <div>
