@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useEffect, useState, type MouseEvent } from "react";
 import { Check, Copy } from "lucide-react";
 
 import { Button } from "@/components/ui/button";
@@ -27,11 +27,13 @@ function copyWithFallback(text: string) {
   textarea.style.left = "-9999px";
   textarea.style.top = "0";
   textarea.style.opacity = "0";
+  textarea.style.fontSize = "16px";
 
   document.body.appendChild(textarea);
 
   textarea.focus();
   textarea.select();
+  textarea.setSelectionRange(0, textarea.value.length);
 
   let copied = false;
 
@@ -49,7 +51,8 @@ function copyWithFallback(text: string) {
 export function CopyButton({ text, label = "Copy result" }: CopyButtonProps) {
   const [status, setStatus] = useState<"idle" | "copied" | "error">("idle");
 
-  const hasText = normalizeCopyText(text).length > 0;
+  const normalizedText = normalizeCopyText(text);
+  const hasText = normalizedText.length > 0;
 
   useEffect(() => {
     if (status === "idle") {
@@ -65,22 +68,25 @@ export function CopyButton({ text, label = "Copy result" }: CopyButtonProps) {
     };
   }, [status]);
 
-  async function handleCopy() {
-    const normalizedText = normalizeCopyText(text);
+  async function handleCopy(event: MouseEvent<HTMLButtonElement>) {
+    event.preventDefault();
+    event.stopPropagation();
 
-    if (!normalizedText) {
+    const textToCopy = normalizeCopyText(text);
+
+    if (!textToCopy) {
       setStatus("error");
       return;
     }
 
     try {
       if (navigator.clipboard && window.isSecureContext) {
-        await navigator.clipboard.writeText(normalizedText);
+        await navigator.clipboard.writeText(textToCopy);
         setStatus("copied");
         return;
       }
 
-      const fallbackCopied = copyWithFallback(normalizedText);
+      const fallbackCopied = copyWithFallback(textToCopy);
 
       if (fallbackCopied) {
         setStatus("copied");
@@ -90,7 +96,7 @@ export function CopyButton({ text, label = "Copy result" }: CopyButtonProps) {
       setStatus("error");
     } catch {
       try {
-        const fallbackCopied = copyWithFallback(normalizedText);
+        const fallbackCopied = copyWithFallback(textToCopy);
 
         if (fallbackCopied) {
           setStatus("copied");
@@ -130,7 +136,7 @@ export function CopyButton({ text, label = "Copy result" }: CopyButtonProps) {
       </Button>
 
       {status === "error" ? (
-        <p className="text-xs leading-5 text-red-600">
+        <p className="text-xs leading-5 text-red-600 dark:text-red-400">
           Copying failed on this browser. Please try again or select the result
           text manually.
         </p>
