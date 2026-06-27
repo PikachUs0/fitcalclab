@@ -41,7 +41,7 @@ const flowItems = [
 
 export function RecommendedFlow() {
   return (
-    <section className="rounded-[2rem] border border-slate-200 bg-white p-5 shadow-sm md:p-6">
+    <section className="rounded-[2rem] border border-slate-200 bg-white p-5 shadow-sm md:p-6 dark:border-slate-800 dark:bg-slate-900">
       <div className="flex items-start gap-3">
         <div className="flex h-11 w-11 shrink-0 items-center justify-center rounded-2xl bg-emerald-100 text-emerald-700">
           <Route className="h-5 w-5" />
@@ -56,7 +56,7 @@ export function RecommendedFlow() {
             Not sure where to start?
           </h2>
 
-          <p className="mt-2 max-w-2xl text-sm leading-6 text-slate-600">
+          <p className="mt-2 max-w-2xl text-sm leading-6 text-slate-700 dark:text-slate-300">
             Follow this simple order to move from basic body metrics to daily
             calories, macros and hydration targets.
           </p>
@@ -84,7 +84,7 @@ export function RecommendedFlow() {
               <ArrowRight className="mt-1 h-4 w-4 text-slate-400 transition-transform group-hover:translate-x-1 group-hover:text-emerald-600" />
             </div>
 
-            <p className="mt-3 text-sm leading-6 text-slate-600">
+            <p className="mt-3 text-sm leading-6 text-slate-700 dark:text-slate-300">
               {item.description}
             </p>
           </a>

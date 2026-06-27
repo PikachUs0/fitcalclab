@@ -23,7 +23,7 @@ export function CalorieTargetSlider() {
   }, [calories]);
 
   return (
-    <Card className="overflow-hidden border-slate-200 bg-white p-5 shadow-sm md:p-6">
+    <Card className="overflow-hidden border-slate-200 bg-white p-5 shadow-sm md:p-6 dark:border-slate-800 dark:bg-slate-900">
       <div className="grid gap-6 md:grid-cols-[0.95fr_1.05fr] md:items-center">
         <div>
           <div className="inline-flex items-center gap-2 rounded-full bg-emerald-50 px-3 py-1 text-sm font-medium text-emerald-700">

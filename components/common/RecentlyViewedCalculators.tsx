@@ -91,7 +91,7 @@ export function RecentlyViewedCalculators() {
   }
 
   return (
-    <Card className="border-slate-200 bg-white p-5 shadow-sm md:p-6">
+    <Card className="border-slate-200 bg-white p-5 shadow-sm md:p-6 dark:border-slate-800 dark:bg-slate-900">
       <div className="flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
         <div>
           <div className="flex items-center gap-2 text-sm font-medium text-emerald-700">
@@ -103,7 +103,7 @@ export function RecentlyViewedCalculators() {
             Continue where you left off
           </h2>
 
-          <p className="mt-2 text-sm leading-6 text-slate-600">
+          <p className="mt-2 text-sm leading-6 text-slate-700 dark:text-slate-300">
             Quickly return to calculators you opened recently.
           </p>
         </div>
@@ -139,7 +139,7 @@ export function RecentlyViewedCalculators() {
                 {calculator.title}
               </p>
 
-              <p className="mt-2 line-clamp-2 text-sm leading-6 text-slate-600">
+              <p className="mt-2 line-clamp-2 text-sm leading-6 text-slate-700 dark:text-slate-300">
                 {calculator.description}
               </p>
             </Link>

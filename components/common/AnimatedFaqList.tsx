@@ -89,7 +89,7 @@ export function AnimatedFaqList({ items }: AnimatedFaqListProps) {
                   }}
                   className="overflow-hidden"
                 >
-                  <p className="px-4 pb-4 text-sm leading-6 text-slate-600">
+                  <p className="px-4 pb-4 text-sm leading-6 text-slate-700 dark:text-slate-300">
                     {item.answer}
                   </p>
                 </motion.div>

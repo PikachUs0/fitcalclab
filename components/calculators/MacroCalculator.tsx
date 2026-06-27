@@ -129,13 +129,13 @@ Fat: ${result.fatPerMeal}g`
   return (
     <div className="grid items-start gap-6 lg:grid-cols-[1fr_0.9fr]">
       {/* Sol Kolon: Girdi Formu */}
-      <Card className="border-slate-200 bg-white p-5 shadow-sm md:p-6">
+      <Card className="border-slate-200 bg-white p-5 shadow-sm md:p-6 dark:border-slate-800 dark:bg-slate-900">
         <div className="mb-6">
-          <h2 className="text-xl font-semibold tracking-tight text-slate-950">
+          <h2 className="text-xl font-semibold tracking-tight text-slate-950 dark:text-white">
             Enter your calorie target
           </h2>
 
-          <p className="mt-2 text-sm leading-6 text-slate-600">
+          <p className="mt-2 text-sm leading-6 text-slate-700 dark:text-slate-300">
             Use your TDEE result or enter your own calorie target to estimate
             protein, carbs and fat.
           </p>
@@ -301,7 +301,7 @@ Fat: ${result.fatPerMeal}g`
                 </div>
 
                 {result.description && (
-                  <p className="mt-5 text-sm leading-6 text-slate-600">
+                  <p className="mt-5 text-sm leading-6 text-slate-700 dark:text-slate-300">
                     {result.description}
                   </p>
                 )}
@@ -313,7 +313,7 @@ Fat: ${result.fatPerMeal}g`
                   Per meal estimate
                 </h3>
 
-                <p className="mt-3 text-sm leading-6 text-slate-600">
+                <p className="mt-3 text-sm leading-6 text-slate-700 dark:text-slate-300">
                   If you eat {result.mealsPerDay} meals per day, each meal would
                   average about{" "}
                   <strong>{result.proteinPerMeal}g protein</strong>,{" "}
@@ -330,7 +330,7 @@ Fat: ${result.fatPerMeal}g`
                       Save or share your result
                     </h3>
 
-                    <p className="mt-1 text-sm leading-6 text-slate-600">
+                    <p className="mt-1 text-sm leading-6 text-slate-700 dark:text-slate-300">
                       Copy your macro result and save it to notes or use it in
                       your meal planning.
                     </p>
@@ -358,7 +358,7 @@ Fat: ${result.fatPerMeal}g`
                   Your result will appear here
                 </p>
 
-                <p className="mt-2 max-w-sm text-sm leading-6 text-slate-600">
+                <p className="mt-2 max-w-sm text-sm leading-6 text-slate-700 dark:text-slate-300">
                   Enter your calories and goal to see your macro split.
                 </p>
               </div>

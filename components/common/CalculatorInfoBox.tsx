@@ -41,7 +41,7 @@ export function CalculatorInfoBox({
             </h3>
           </div>
 
-          <ol className="mt-4 grid gap-3 text-sm leading-6 text-slate-600">
+          <ol className="mt-4 grid gap-3 text-sm leading-6 text-slate-700 dark:text-slate-300">
             {howToUse.map((item, index) => (
               <li key={item} className="flex gap-3">
                 <span className="flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-emerald-100 text-xs font-semibold text-emerald-700">
@@ -63,7 +63,7 @@ export function CalculatorInfoBox({
             </h3>
           </div>
 
-          <p className="mt-4 text-sm leading-6 text-slate-600">
+          <p className="mt-4 text-sm leading-6 text-slate-700 dark:text-slate-300">
             {resultMeaning}
           </p>
 

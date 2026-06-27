@@ -36,7 +36,7 @@ export function ComingSoonPage({
             {description}
           </p>
 
-          <div className="mt-8 rounded-3xl bg-slate-50 p-5 text-sm leading-6 text-slate-600">
+          <div className="mt-8 rounded-3xl bg-slate-50 p-5 text-sm leading-6 text-slate-700 dark:text-slate-300">
             This calculator is being prepared. For now, you can try the BMI
             Calculator or browse all fitness calculators.
           </div>

@@ -76,7 +76,7 @@ export function Footer() {
             </div>
           </Link>
 
-          <p className="mt-5 max-w-sm text-sm leading-6 text-slate-600 dark:text-slate-300">
+          <p className="mt-5 max-w-sm text-sm leading-6 text-slate-700 dark:text-slate-300 dark:text-slate-300">
             Simple fitness calculators for calories, macros, hydration, body
             metrics and training estimates. Results are informational estimates
             and are not medical advice.

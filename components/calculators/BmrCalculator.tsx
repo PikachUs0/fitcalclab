@@ -148,13 +148,13 @@ Unit system: ${unit === "metric" ? "Metric" : "Imperial"}`
 
   return (
     <div className="grid items-start gap-6 lg:grid-cols-[1fr_0.9fr]">
-      <Card className="border-slate-200 bg-white p-5 shadow-sm md:p-6">
+      <Card className="border-slate-200 bg-white p-5 shadow-sm md:p-6 dark:border-slate-800 dark:bg-slate-900">
         <div className="mb-6">
-          <h2 className="text-xl font-semibold tracking-tight text-slate-950">
+          <h2 className="text-xl font-semibold tracking-tight text-slate-950 dark:text-white">
             Enter your details
           </h2>
 
-          <p className="mt-2 text-sm leading-6 text-slate-600">
+          <p className="mt-2 text-sm leading-6 text-slate-700 dark:text-slate-300">
             Choose your unit system and enter your basic body details to
             estimate your BMR.
           </p>
@@ -290,7 +290,7 @@ Unit system: ${unit === "metric" ? "Metric" : "Imperial"}`
                   What this means
                 </h3>
 
-                <p className="mt-3 text-sm leading-6 text-slate-600">
+                <p className="mt-3 text-sm leading-6 text-slate-700 dark:text-slate-300">
                   {result.description}
                 </p>
               </Card>
@@ -302,7 +302,7 @@ Unit system: ${unit === "metric" ? "Metric" : "Imperial"}`
                       Save or share your result
                     </h3>
 
-                    <p className="mt-1 text-sm leading-6 text-slate-600">
+                    <p className="mt-1 text-sm leading-6 text-slate-700 dark:text-slate-300">
                       Copy your estimated BMR and save it to notes or use it as
                       a starting point for TDEE.
                     </p>
@@ -330,7 +330,7 @@ Unit system: ${unit === "metric" ? "Metric" : "Imperial"}`
                   Your result will appear here
                 </p>
 
-                <p className="mt-2 max-w-sm text-sm leading-6 text-slate-600">
+                <p className="mt-2 max-w-sm text-sm leading-6 text-slate-700 dark:text-slate-300">
                   Enter your details to estimate your basal metabolic rate.
                 </p>
               </div>

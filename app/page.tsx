@@ -128,7 +128,7 @@ export default function HomePage() {
         {calculator.title}
       </h3>
 
-      <p className="mt-2 text-sm leading-6 text-slate-600 dark:text-slate-300">
+      <p className="mt-2 text-sm leading-6 text-slate-700 dark:text-slate-300 dark:text-slate-300">
         {calculator.description}
       </p>
 
