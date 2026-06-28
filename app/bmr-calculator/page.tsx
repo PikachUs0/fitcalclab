@@ -1,4 +1,4 @@
-import type { Metadata } from "next";
+﻿import type { Metadata } from "next";
 import { QuickAnswer } from "@/components/common/QuickAnswer";
 import { BreadcrumbJsonLd } from "@/components/seo/BreadcrumbJsonLd";
 import { siteConfig } from "@/lib/site";
@@ -11,6 +11,7 @@ import { NextStepSection } from "@/components/common/NextStepSection";
 import { RelatedTools } from "@/components/common/RelatedTools";
 import { MotionSection } from "@/components/motion/MotionSection";
 import { CalculatorInfoBox } from "@/components/common/CalculatorInfoBox";
+import { RelatedGuideCard } from "@/components/common/RelatedGuideCard";
 
 export const metadata: Metadata = {
   title: "BMR Calculator - Calculate Your Basal Metabolic Rate",
@@ -109,6 +110,14 @@ export default function BmrCalculatorPage() {
     usually lower than total daily calorie needs.
   </p>
 </QuickAnswer>
+
+<div className="mt-6">
+  <RelatedGuideCard
+    title="BMR vs TDEE: What Is the Difference?"
+    description="Understand resting calorie needs, total daily energy expenditure, and how both numbers help with calorie planning."
+    href="/blog/bmr-vs-tdee"
+  />
+</div>
 
         <div className="mt-6">
           <BmrCalculator />

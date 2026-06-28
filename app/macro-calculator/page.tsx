@@ -1,4 +1,4 @@
-import type { Metadata } from "next";
+﻿import type { Metadata } from "next";
 import { QuickAnswer } from "@/components/common/QuickAnswer";
 import { BreadcrumbJsonLd } from "@/components/seo/BreadcrumbJsonLd";
 import { CalculatorJsonLd } from "@/components/seo/CalculatorJsonLd";
@@ -8,6 +8,7 @@ import { MacroCalculator } from "@/components/calculators/MacroCalculator";
 import { MotionSection } from "@/components/motion/MotionSection";
 import { CalculatorQuickNav } from "@/components/common/CalculatorQuickNav";
 import { CalculatorInfoBox } from "@/components/common/CalculatorInfoBox";
+import { RelatedGuideCard } from "@/components/common/RelatedGuideCard";
 
 export const metadata: Metadata = {
   title: "Macro Calculator - Calculate Your Daily Macronutrient Targets",
@@ -105,6 +106,14 @@ export default function MacroCalculatorPage() {
     training and consistency.
   </p>
 </QuickAnswer>
+
+<div className="mt-6">
+  <RelatedGuideCard
+    title="Macro Split for Fat Loss, Maintenance and Muscle Gain"
+    description="Understand how protein, carbohydrates and fat can be split across calories for different fitness goals."
+    href="/blog/macro-split-for-fat-loss"
+  />
+</div>
 
 
 <div className="mt-6">

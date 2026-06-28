@@ -21,6 +21,38 @@ type BlogArticle = {
   relatedSlugs?: string[];
 };
 
+const quickAnswers: Record<string, string> = {
+  "how-to-calculate-bmi":
+    "BMI is calculated by dividing body weight by height squared. It is useful as a quick screening estimate, but it does not directly measure body fat, muscle mass or overall health.",
+
+  "bmr-vs-tdee":
+    "BMR estimates calories burned at rest, while TDEE estimates total daily calories after activity is included. TDEE is usually more useful for daily calorie planning.",
+
+  "how-many-calories-should-i-eat":
+    "Daily calorie needs depend on maintenance calories, activity level and goal. A calorie calculator gives a starting estimate that should be adjusted based on real progress.",
+
+  "macro-split-for-fat-loss":
+    "A macro split divides daily calories into protein, carbohydrates and fat. For fat loss, a practical split should support a calorie deficit, enough protein and long-term consistency.",
+
+  "how-much-protein-per-day":
+    "Daily protein needs depend on body weight, activity level and goal. A protein calculator can estimate daily grams and protein per meal as a practical starting point.",
+
+  "how-much-water-should-you-drink-per-day":
+    "Daily water needs depend on body weight, exercise, sweating, climate and routine. A water intake calculator gives a starting estimate, not a fixed rule.",
+
+  "how-to-estimate-body-fat-percentage":
+    "Body fat percentage estimates how much of body weight may come from fat mass. Measurement-based calculators are useful for trends, but they are not exact measurements.",
+
+  "ideal-weight-formulas-explained":
+    "Ideal weight formulas estimate reference weight from height, but different formulas give different results. Treat ideal weight as a general range, not a strict target.",
+
+  "one-rep-max-guide":
+    "One rep max estimates the maximum weight you could lift for one repetition. A 1RM calculator can estimate strength from submaximal reps without testing a true max.",
+
+  "weight-loss-timeline-explained":
+    "A weight loss timeline estimates how long a goal may take based on target weight and calorie deficit. Real progress can vary because weight loss is not perfectly linear.",
+};
+
 const articleContent: Record<string, BlogArticle> = {
   "how-to-calculate-bmi": {
     intro:
@@ -862,6 +894,7 @@ export async function generateMetadata({
   const { slug } = await params;
   const post = getBlogPostBySlug(slug);
 
+
   if (!post) {
     return {};
   }
@@ -895,6 +928,7 @@ export default async function BlogPostPage({
   const { slug } = await params;
   const post = getBlogPostBySlug(slug);
   const article = articleContent[slug];
+  const quickAnswer = quickAnswers[slug];
 
   if (!post || !article) {
     notFound();
@@ -935,6 +969,19 @@ export default async function BlogPostPage({
           <p className="mt-5 text-lg leading-8 text-slate-600 dark:text-slate-300">
             {post.description}
           </p>
+
+{quickAnswer ? (
+  <section className="mt-8 rounded-3xl border border-emerald-200 bg-emerald-50 p-5 shadow-sm dark:border-emerald-900 dark:bg-emerald-950/40">
+    <p className="text-sm font-semibold text-emerald-800 dark:text-emerald-200">
+      Quick answer
+    </p>
+
+    <p className="mt-2 text-base leading-7 text-slate-700 dark:text-slate-300">
+      {quickAnswer}
+    </p>
+  </section>
+) : null}
+
         </div>
 
         <div className="mt-10 rounded-3xl border border-slate-200 bg-white p-6 shadow-sm dark:border-slate-800 dark:bg-slate-900">

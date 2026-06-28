@@ -85,22 +85,35 @@ export default function PrivacyPolicyPage() {
             </p>
           </Card>
 
-          <Card className="border-slate-200 bg-white p-6 shadow-sm">
-            <h2 className="text-2xl font-semibold tracking-tight text-slate-950">
+          <Card className="border-slate-200 bg-white p-6 shadow-sm dark:border-slate-800 dark:bg-slate-900">
+            <h2 className="text-2xl font-semibold tracking-tight text-slate-950 dark:text-white">
               Cookies, analytics and advertising
             </h2>
 
-            <p className="mt-3 leading-7 text-slate-600">
+            <p className="mt-3 leading-7 text-slate-700 dark:text-slate-300">
               FitCalcLab may use cookies or similar technologies for basic site
-              functionality, analytics, performance measurement or advertising
-              if these services are enabled.
+              functionality, analytics, performance measurement and advertising if these
+              services are enabled.
             </p>
 
-            <p className="mt-3 leading-7 text-slate-600">
-              Third-party services, such as analytics providers or advertising
-              networks, may collect information according to their own privacy
-              policies. Users can manage cookies and tracking preferences from
-              their browser settings.
+            <p className="mt-3 leading-7 text-slate-700 dark:text-slate-300">
+              FitCalcLab may use analytics tools such as Google Analytics to understand
+              how visitors use the website, improve page performance and measure general
+              traffic patterns. These tools may collect information such as pages visited,
+              device type, browser type, approximate location and referral sources.
+            </p>
+
+            <p className="mt-3 leading-7 text-slate-700 dark:text-slate-300">
+              If advertising is added in the future, third-party advertising partners such
+              as Google AdSense may use cookies or similar technologies to show relevant
+              ads and measure ad performance. Visitors can manage cookie and ad
+              personalization preferences through their browser or Google account settings.
+            </p>
+
+            <p className="mt-3 leading-7 text-slate-700 dark:text-slate-300">
+              Third-party services, such as analytics providers or advertising networks,
+              may collect information according to their own privacy policies. Users can
+              manage cookies and tracking preferences from their browser settings.
             </p>
           </Card>
 

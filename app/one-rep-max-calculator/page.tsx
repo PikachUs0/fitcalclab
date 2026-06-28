@@ -1,4 +1,4 @@
-import type { Metadata } from "next";
+﻿import type { Metadata } from "next";
 import { BreadcrumbJsonLd } from "@/components/seo/BreadcrumbJsonLd";
 import { siteConfig } from "@/lib/site";
 import { QuickAnswer } from "@/components/common/QuickAnswer";
@@ -9,6 +9,7 @@ import { OneRepMaxCalculator } from "@/components/calculators/OneRepMaxCalculato
 import { CalculatorInfoBox } from "@/components/common/CalculatorInfoBox";
 import { CalculatorQuickNav } from "@/components/common/CalculatorQuickNav";
 import { MotionSection } from "@/components/motion/MotionSection";
+import { RelatedGuideCard } from "@/components/common/RelatedGuideCard";
 
 export const metadata: Metadata = {
   title: "One Rep Max Calculator - Estimate Your Maximum Lifting Capacity",
@@ -111,6 +112,14 @@ export default function OneRepMaxCalculatorPage() {
     true max attempt.
   </p>
 </QuickAnswer>
+
+<div className="mt-6">
+  <RelatedGuideCard
+    title="How to Use the One Rep Max Calculator"
+    description="Learn how to use the one rep max calculator to estimate your maximum strength and plan your training."
+    href="/blog/one-rep-max-guide"
+  />
+</div>
 
           <OneRepMaxCalculator />
         </div>

@@ -1,4 +1,4 @@
-import type { Metadata } from "next";
+﻿import type { Metadata } from "next";
 import { BreadcrumbJsonLd } from "@/components/seo/BreadcrumbJsonLd";
 import { siteConfig } from "@/lib/site";
 import { QuickAnswer } from "@/components/common/QuickAnswer";
@@ -8,6 +8,7 @@ import { WeightLossTimelineCalculator } from "@/components/calculators/WeightLos
 import { CalculatorInfoBox } from "@/components/common/CalculatorInfoBox";
 import { CalculatorQuickNav } from "@/components/common/CalculatorQuickNav";
 import { MotionSection } from "@/components/motion/MotionSection";
+import { RelatedGuideCard } from "@/components/common/RelatedGuideCard";
 
 export const metadata: Metadata = {
   title: "Weight Loss Timeline Calculator - Plan Your Weight Loss Journey",
@@ -106,6 +107,15 @@ export default function WeightLossTimelineCalculatorPage() {
     Real progress can vary because weight loss is not perfectly linear.
   </p>
 </QuickAnswer>
+
+<div className="mt-6">
+  <RelatedGuideCard
+    title="How to Create a Realistic Weight Loss Timeline"
+    description="Learn how to set achievable weight loss goals and create a sustainable plan for long-term success."
+    href="/blog/weight-loss-timeline-explained"
+  />
+</div>
+
           <WeightLossTimelineCalculator />
         </div>
 

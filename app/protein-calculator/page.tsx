@@ -1,4 +1,4 @@
-import type { Metadata } from "next";
+﻿import type { Metadata } from "next";
 import { BreadcrumbJsonLd } from "@/components/seo/BreadcrumbJsonLd";
 import { siteConfig } from "@/lib/site";
 import { QuickAnswer } from "@/components/common/QuickAnswer";
@@ -8,6 +8,7 @@ import { ProteinCalculator } from "@/components/calculators/ProteinCalculator";
 import { CalculatorInfoBox } from "@/components/common/CalculatorInfoBox";
 import { CalculatorQuickNav } from "@/components/common/CalculatorQuickNav";
 import { MotionSection } from "@/components/motion/MotionSection";
+import { RelatedGuideCard } from "@/components/common/RelatedGuideCard";
 
 export const metadata: Metadata = {
   title: "Protein Calculator - Calculate Your Daily Protein Target",
@@ -106,6 +107,14 @@ export default function ProteinCalculatorPage() {
     targets easier to plan and follow.
   </p>
 </QuickAnswer>
+
+<div className="mt-6">
+  <RelatedGuideCard
+    title="How Much Protein Do You Need Per Day?"
+    description="Learn how body weight, training level, goal and meals per day can affect daily protein targets."
+    href="/blog/how-much-protein-per-day"
+  />
+</div>
 
         <div className="mt-6">
           <ProteinCalculator />

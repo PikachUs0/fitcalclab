@@ -9,9 +9,11 @@ import { AdSlot } from "@/components/common/AdSlot";
 import { NextStepSection } from "@/components/common/NextStepSection";
 import { RelatedTools } from "@/components/common/RelatedTools";
 import { CalculatorQuickNav } from "@/components/common/CalculatorQuickNav";
+import { RelatedGuideCard } from "@/components/common/RelatedGuideCard";
 import { MotionSection } from "@/components/motion/MotionSection";
 import { CalculatorInfoBox } from "@/components/common/CalculatorInfoBox";
 import {
+
   Accordion,
   AccordionContent,
   AccordionItem,
@@ -112,6 +114,14 @@ export default function BmiCalculatorPage() {
     measure body fat, muscle mass or overall health.
   </p>
 </QuickAnswer>
+
+<div className="mt-6">
+  <RelatedGuideCard
+    title="How to Calculate BMI and What It Means"
+    description="Learn how BMI is calculated, what BMI categories mean, and when BMI should be interpreted with caution."
+    href="/blog/how-to-calculate-bmi"
+  />
+</div>
 
         <div className="mt-8">
           <BmiCalculator />

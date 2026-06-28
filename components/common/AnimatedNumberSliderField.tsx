@@ -1,10 +1,5 @@
 "use client";
 
-import { motion } from "motion/react";
-
-import { SlidingNumber } from "@/components/common/SlidingNumber";
-import { Label } from "@/components/ui/label";
-
 type AnimatedNumberSliderFieldProps = {
   id: string;
   label: string;
@@ -26,95 +21,127 @@ export function AnimatedNumberSliderField({
   min,
   max,
   step = 1,
-  suffix = "",
+  suffix,
   decimals = 0,
+  placeholder,
 }: AnimatedNumberSliderFieldProps) {
-  const numericValue = value.trim() === "" ? min : Number(value);
-  const safeValue = Number.isFinite(numericValue) ? numericValue : min;
+  const numericValue = Number(value);
 
-  function handleSliderChange(nextValue: string) {
-    onChange(nextValue);
+  const safeValue =
+    Number.isFinite(numericValue) && numericValue >= min && numericValue <= max
+      ? numericValue
+      : min;
+
+  const percentage = ((safeValue - min) / (max - min)) * 100;
+  const inputCharacterLength = Math.max(value.length, 2);
+const inputWidth = suffix
+  ? `${inputCharacterLength + 0.5}ch`
+  : `${Math.max(inputCharacterLength, 3)}ch`;
+
+  function handleInputChange(nextValue: string) {
+    if (nextValue === "") {
+      onChange("");
+      return;
+    }
+
+    const cleanedValue = nextValue.replace(",", ".");
+
+    if (!/^\d*\.?\d*$/.test(cleanedValue)) {
+      return;
+    }
+
+    onChange(cleanedValue);
   }
 
+  function handleInputBlur() {
+  if (value === "") {
+    return;
+  }
+
+  const numberValue = Number(value);
+
+  if (!Number.isFinite(numberValue)) {
+    onChange("");
+    return;
+  }
+
+  const clampedValue = Math.min(Math.max(numberValue, min), max);
+
+  const formattedValue =
+    decimals > 0
+      ? clampedValue.toFixed(decimals)
+      : String(Math.round(clampedValue));
+
+  onChange(formattedValue);
+}
+
   return (
-    <motion.div
-  layout
-  className="grid gap-4 rounded-[1.75rem] border p-5 shadow-sm"
-  style={{
-    backgroundColor: "var(--fl-card)",
-    borderColor: "var(--fl-border)",
-    color: "var(--fl-text)",
-  }}
-  transition={{
-    type: "spring",
-    stiffness: 260,
-    damping: 22,
-  }}
->
-      <div className="flex items-center justify-between gap-4">
-        <Label
-          htmlFor={id}
-          className="text-sm font-medium"
-          style={{
-            color: "var(--fl-text)",
-          }}
-        >
-          {label}
-        </Label>
-      </div>
+    <div className="grid gap-4">
+      <label
+        htmlFor={id}
+        className="text-sm font-medium text-slate-800 dark:text-slate-200"
+      >
+        {label}
+      </label>
 
       <div className="flex justify-center">
-        <motion.div
-          key={`${id}-${safeValue}`}
-          initial={{ scale: 0.96, opacity: 0.85 }}
-          animate={{ scale: 1, opacity: 1 }}
-          transition={{
-            duration: 0.28,
-            ease: "easeOut",
-          }}
-          className="inline-flex min-w-24 items-center justify-center rounded-full border px-6 py-3 font-mono text-xl font-bold leading-none shadow-sm"
-          style={{
-  backgroundColor: "var(--fl-card-elevated)",
-  borderColor: "color-mix(in srgb, var(--fl-primary) 32%, transparent)",
-  color: "var(--fl-primary)",
-  boxShadow: "0 12px 28px rgba(0, 0, 0, 0.16)",
-}}
-        >
-          <SlidingNumber value={safeValue} decimals={decimals} />
-          {suffix ? <span className="ml-1 text-base">{suffix}</span> : null}
-        </motion.div>
-      </div>
+  <div className="inline-flex w-fit items-center justify-center gap-1 rounded-full border border-emerald-200 bg-white px-6 py-3 shadow-sm dark:border-emerald-900 dark:bg-slate-900">
+    <input
+      id={id}
+      type="text"
+      inputMode="decimal"
+      value={value}
+      onChange={(event) => handleInputChange(event.target.value)}
+      onBlur={handleInputBlur}
+      placeholder={placeholder}
+      style={{ width: inputWidth }}
+className={`bg-transparent text-2xl font-bold tabular-nums text-emerald-700 outline-none placeholder:text-emerald-300 dark:text-emerald-300 dark:placeholder:text-emerald-800 ${
+  suffix ? "text-right" : "text-center"
+}`}
+    />
+
+    {suffix ? (
+      <span className="shrink-0 whitespace-nowrap text-lg font-bold text-emerald-700 dark:text-emerald-300">
+  {suffix}
+</span>
+    ) : null}
+  </div>
+</div>
 
       <input
-        id={id}
         type="range"
         min={min}
         max={max}
         step={step}
         value={safeValue}
-        onChange={(event) => handleSliderChange(event.target.value)}
-        className="h-2 w-full cursor-pointer"
+        onChange={(event) => onChange(event.target.value)}
+        aria-label={`${label} slider`}
+        className="h-2 w-full cursor-pointer appearance-none rounded-full bg-transparent"
         style={{
-          accentColor: "var(--fl-primary)",
+          background: `linear-gradient(to right, #0f9f8f 0%, #0f9f8f ${percentage}%, #3f3f3f ${percentage}%, #3f3f3f 100%)`,
         }}
       />
 
-      <div
-        className="flex justify-between text-xs"
-        style={{
-          color: "var(--fl-text-muted)",
-        }}
-      >
-        <span>
-          {min}
-          {suffix}
-        </span>
+      <style jsx>{`
+        input[type="range"]::-webkit-slider-thumb {
+          appearance: none;
+          width: 20px;
+          height: 20px;
+          border-radius: 9999px;
+          background: #0f9f8f;
+          cursor: pointer;
+          border: 0;
+        }
 
-        <span>
-          {max}
-          {suffix}
-        </span>
-      </div>
-    </motion.div>
+        input[type="range"]::-moz-range-thumb {
+          width: 20px;
+          height: 20px;
+          border-radius: 9999px;
+          background: #0f9f8f;
+          cursor: pointer;
+          border: 0;
+        }
+      `}</style>
+    </div>
   );
 }

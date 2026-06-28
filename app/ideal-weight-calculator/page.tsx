@@ -1,4 +1,4 @@
-import type { Metadata } from "next";
+﻿import type { Metadata } from "next";
 import { QuickAnswer } from "@/components/common/QuickAnswer";
 import { BreadcrumbJsonLd } from "@/components/seo/BreadcrumbJsonLd";
 import { siteConfig } from "@/lib/site";
@@ -9,6 +9,7 @@ import { IdealWeightCalculator } from "@/components/calculators/IdealWeightCalcu
 import { CalculatorInfoBox } from "@/components/common/CalculatorInfoBox";
 import { CalculatorQuickNav } from "@/components/common/CalculatorQuickNav";
 import { MotionSection } from "@/components/motion/MotionSection";
+import { RelatedGuideCard } from "@/components/common/RelatedGuideCard";
 
 export const metadata: Metadata = {
   title: "Ideal Weight Calculator - Estimate Your Ideal Body Weight",
@@ -106,6 +107,14 @@ export default function IdealWeightCalculatorPage() {
     personal context.
   </p>
 </QuickAnswer>
+
+<div className="mt-6">
+  <RelatedGuideCard
+    title="Ideal Weight Formulas Explained"
+    description="Learn how ideal weight formulas work, why different formulas give different results and how to interpret the range."
+    href="/blog/ideal-weight-formulas-explained"
+  />
+</div>
 
         <div className="mt-6">
           <IdealWeightCalculator />

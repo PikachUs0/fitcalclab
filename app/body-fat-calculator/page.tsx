@@ -1,4 +1,4 @@
-import type { Metadata } from "next";
+﻿import type { Metadata } from "next";
 import { QuickAnswer } from "@/components/common/QuickAnswer";
 import { BreadcrumbJsonLd } from "@/components/seo/BreadcrumbJsonLd";
 import { siteConfig } from "@/lib/site";
@@ -8,6 +8,7 @@ import { BodyFatCalculator } from "@/components/calculators/BodyFatCalculator";
 import { CalculatorInfoBox } from "@/components/common/CalculatorInfoBox";
 import { CalculatorQuickNav } from "@/components/common/CalculatorQuickNav";
 import { MotionSection } from "@/components/motion/MotionSection";
+import { RelatedGuideCard } from "@/components/common/RelatedGuideCard";
 
 export const metadata: Metadata = {
   title: "Body Fat Calculator - Estimate Your Body Composition",
@@ -104,6 +105,15 @@ export default function BodyFatCalculatorPage() {
     still an estimate and depends on consistent measurement technique.
   </p>
 </QuickAnswer>
+
+<div className="mt-6">
+  <RelatedGuideCard
+    title="How to Estimate Body Fat Percentage"
+    description="Understand body fat percentage estimates, measurement-based methods and why results should be interpreted carefully."
+    href="/blog/how-to-estimate-body-fat-percentage"
+  />
+</div>
+
         <div className="mt-6">
           <BodyFatCalculator />
         </div>

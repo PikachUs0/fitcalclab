@@ -1,4 +1,4 @@
-import type { Metadata } from "next";
+﻿import type { Metadata } from "next";
 import { QuickAnswer } from "@/components/common/QuickAnswer";
 import { CalculatorFaq } from "@/components/common/CalculatorFaq";
 import { BreadcrumbJsonLd } from "@/components/seo/BreadcrumbJsonLd";
@@ -8,6 +8,7 @@ import { CalculatorInfoBox } from "@/components/common/CalculatorInfoBox";
 import { CalculatorQuickNav } from "@/components/common/CalculatorQuickNav";
 import { MotionSection } from "@/components/motion/MotionSection";
 import { CalculatorJsonLd } from "@/components/seo/CalculatorJsonLd";
+import { RelatedGuideCard } from "@/components/common/RelatedGuideCard";
 export const metadata: Metadata = {
   title: "Water Intake Calculator - Calculate Your Daily Hydration Needs",
   description:
@@ -103,6 +104,14 @@ export default function WaterIntakeCalculatorPage() {
     sweating, activity level and daily routine.
   </p>
 </QuickAnswer>
+
+<div className="mt-6">
+  <RelatedGuideCard
+    title="How Much Water Should You Drink Per Day?"
+    description="Learn what affects daily water needs, including body weight, exercise time, sweating and climate."
+    href="/blog/how-much-water-should-you-drink-per-day"
+  />
+</div>
 
         <div className="mt-6">
           <WaterCalculator />

@@ -1,4 +1,4 @@
-import type { Metadata } from "next";
+﻿import type { Metadata } from "next";
 import { BreadcrumbJsonLd } from "@/components/seo/BreadcrumbJsonLd";
 import { siteConfig } from "@/lib/site";
 import { QuickAnswer } from "@/components/common/QuickAnswer";
@@ -8,6 +8,7 @@ import { CalorieCalculator } from "@/components/calculators/CalorieCalculator";
 import { CalculatorInfoBox } from "@/components/common/CalculatorInfoBox";
 import { CalculatorQuickNav } from "@/components/common/CalculatorQuickNav";
 import { MotionSection } from "@/components/motion/MotionSection";
+import { RelatedGuideCard } from "@/components/common/RelatedGuideCard";
 
 export const metadata: Metadata = {
   title: "Calorie Calculator - Estimate Your Daily Calorie Needs",
@@ -110,6 +111,15 @@ export default function CalorieCalculatorPage() {
     based on real progress over time.
   </p>
 </QuickAnswer>
+
+<div className="mt-6">
+  <RelatedGuideCard
+    title="How Many Calories Should I Eat Per Day?"
+    description="Learn how maintenance calories, calorie deficits and calorie surpluses work for different fitness goals."
+    href="/blog/how-many-calories-should-i-eat"
+  />
+</div>
+
           <CalorieCalculator />
         </div>
 

@@ -1,4 +1,4 @@
-import type { Metadata } from "next";
+﻿import type { Metadata } from "next";
 import { BreadcrumbJsonLd } from "@/components/seo/BreadcrumbJsonLd";
 import { siteConfig } from "@/lib/site";
 import { QuickAnswer } from "@/components/common/QuickAnswer";
@@ -8,6 +8,7 @@ import { TdeeCalculator } from "@/components/calculators/TdeeCalculator";
 import { CalculatorQuickNav } from "@/components/common/CalculatorQuickNav";
 import { MotionSection } from "@/components/motion/MotionSection";
 import { CalculatorInfoBox } from "@/components/common/CalculatorInfoBox";
+import { RelatedGuideCard } from "@/components/common/RelatedGuideCard";
 
 export const metadata: Metadata = {
   title: "TDEE Calculator - Calculate Your Total Daily Energy Expenditure",
@@ -104,6 +105,15 @@ export default function TdeeCalculatorPage() {
     calories.
   </p>
 </QuickAnswer>
+
+<div className="mt-6">
+  <RelatedGuideCard
+    title="BMR vs TDEE: What Is the Difference?"
+    description="Learn how BMR and TDEE are different, why activity level matters, and how TDEE can estimate maintenance calories."
+    href="/blog/bmr-vs-tdee"
+  />
+</div>
+
         <div className="mt-6">
           <TdeeCalculator />
         </div>
